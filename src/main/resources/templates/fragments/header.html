@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<header th:fragment="headerFragment" class="header-section">
+    <div class="hs-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="logo">
+                        <a href="/"><img th:src="@{/img/logo.png}" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-10">
+<!--                    <c:if test="${userVO.userNO != null}">-->
+<!--                        <div class="ht-widget">-->
+<!--                            <a href="logout" class="hw-btn">Logout</a>-->
+<!--                        </div>-->
+<!--                    </c:if>-->
+<!--                    <c:if test="${empty userVO.userNO}">-->
+                        <div class="ht-widget">
+                            <a href="signUp" class="hw-btn">SignUp</a>
+                            <a href="signIn" class="hw-btn">signIn</a>
+                        </div>
+<!--                    </c:if>-->
+                </div>
+            </div>
+            <div class="canvas-open">
+                <span class="icon_menu"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="hs-nav">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <nav class="nav-menu">
+                        <ul>
+                            <li><a href="cityInfo?cityName=all">CITY</a>
+                                <ul class="dropdown">
+                                    <li><a href="cityInfo?cityName=서울">서울</a></li>
+                                    <li><a href="cityInfo?cityName=강릉">강릉</a></li>
+                                    <li><a href="cityInfo?cityName=경주">경주</a></li>
+                                    <li><a href="cityInfo?cityName=부산">부산</a></li>
+                                    <li><a href="cityInfo?cityName=여수">여수</a></li>
+                                    <li><a href="cityInfo?cityName=제주">제주</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="schedule">Schedule</a>
+                                <ul class="dropdown">
+                                    <li><a href="schedule">내 스케줄 보기</a></li>
+                                    <li><a href="otherScheduleList?action=list">다른 사람 스케줄 보기</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="review">Review</a></li>
+                            <li><a href="myPage">MyPage</a></li>
+                            <li><a href="customerCenter">Customer Center</a>
+                                <ul class="dropdown">
+                                    <li><a href="selectedCustomerCenterMenu?menu=Faq">FAQ</a></li>
+                                    <li><a href="selectedCustomerCenterMenu?menu=PersonalTerms">개인정보 처리방침</a></li>
+                                    <li><a href="selectedCustomerCenterMenu?menu=TermsAndConditions">이용약관</a></li>
+                                    <li><a href="selectedCustomerCenterMenu?menu=Notice">공지사항</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3">
+                    <div class="hn-social">
+<!--                        <c:if test="${userVO.userName != null}">-->
+<!--                            <p>환영합니다 ${userVO.userName}님.</p>-->
+<!--                        </c:if>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+</html>
