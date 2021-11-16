@@ -11,17 +11,11 @@
                     </div>
                 </div>
                 <div class="col-lg-10">
-<!--                    <c:if test="${userVO.userNO != null}">-->
-<!--                        <div class="ht-widget">-->
-<!--                            <a href="logout" class="hw-btn">Logout</a>-->
-<!--                        </div>-->
-<!--                    </c:if>-->
-<!--                    <c:if test="${empty userVO.userNO}">-->
-                        <div class="ht-widget">
-                            <a href="signUp" th:text="#{header.login.signUp}" class="hw-btn">회원가입</a>
-                            <a href="signIn" th:text="#{header.login.signIn}" class="hw-btn">로그인</a>
-                        </div>
-<!--                    </c:if>-->
+                    <div class="ht-widget">
+                        <a href="logout" th:text="#{header.login.logout}" th:if="${userVO}" class="hw-btn">로그아웃</a>
+                        <a href="signIn" th:text="#{header.login.signIn}" th:unless="${userVO}" class="hw-btn">로그인</a>
+                        <a href="signUp" th:text="#{header.login.signUp}" th:unless="${userVO}" class="hw-btn">회원가입</a>
+                    </div>
                 </div>
             </div>
             <div class="canvas-open">
@@ -49,17 +43,22 @@
                             <li><a href="schedule" th:text="#{header.menu.schedule}">스케줄 보기</a>
                                 <ul class="dropdown">
                                     <li><a href="schedule" th:text="#{schedule.menu.mySchedule}">내 스케줄 보기</a></li>
-                                    <li><a href="otherScheduleList?action=list" th:text="#{schedule.menu.otherSchedule}">다른 사람 스케줄 보기</a></li>
+                                    <li><a href="otherScheduleList?action=list"
+                                           th:text="#{schedule.menu.otherSchedule}">다른 사람 스케줄 보기</a></li>
                                 </ul>
                             </li>
                             <li><a href="review" th:text="#{header.menu.review}">후기 게시판</a></li>
                             <li><a href="myPage" th:text="#{header.menu.myPage}">마이 페이지</a></li>
                             <li><a href="customerCenter" th:text="#{header.menu.customerCenter}">고객 센터</a>
                                 <ul class="dropdown">
-                                    <li><a href="selectedCustomerCenterMenu?menu=Faq" th:text="#{customerCenter.menu.faq}">자주 묻는 질문들</a></li>
-                                    <li><a href="selectedCustomerCenterMenu?menu=PersonalTerms" th:text="#{customerCenter.menu.personalTerms}">개인정보 처리방침</a></li>
-                                    <li><a href="selectedCustomerCenterMenu?menu=TermsAndConditions" th:text="#{customerCenter.menu.TermsAndConditions}">이용약관</a></li>
-                                    <li><a href="selectedCustomerCenterMenu?menu=Notice" th:text="#{customerCenter.menu.Notice}">공지사항</a></li>
+                                    <li><a href="selectedCustomerCenterMenu?menu=Faq"
+                                           th:text="#{customerCenter.menu.faq}">자주 묻는 질문들</a></li>
+                                    <li><a href="selectedCustomerCenterMenu?menu=PersonalTerms"
+                                           th:text="#{customerCenter.menu.personalTerms}">개인정보 처리방침</a></li>
+                                    <li><a href="selectedCustomerCenterMenu?menu=TermsAndConditions"
+                                           th:text="#{customerCenter.menu.TermsAndConditions}">이용약관</a></li>
+                                    <li><a href="selectedCustomerCenterMenu?menu=Notice"
+                                           th:text="#{customerCenter.menu.Notice}">공지사항</a></li>
                                 </ul>
                             </li>
 
@@ -68,9 +67,7 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="hn-social">
-<!--                        <c:if test="${userVO.userName != null}">-->
-<!--                            <p>환영합니다 ${userVO.userName}님.</p>-->
-<!--                        </c:if>-->
+                        <p th:text="#{hello.name}" th:if="${userVO}"></p>
                     </div>
                 </div>
             </div>
