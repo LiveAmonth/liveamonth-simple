@@ -18,8 +18,8 @@
 <!--                    </c:if>-->
 <!--                    <c:if test="${empty userVO.userNO}">-->
                         <div class="ht-widget">
-                            <a href="signUp" class="hw-btn">SignUp</a>
-                            <a href="signIn" class="hw-btn">signIn</a>
+                            <a href="signUp" th:text="#{header.login.signUp}" class="hw-btn">회원가입</a>
+                            <a href="signIn" th:text="#{header.login.signIn}" class="hw-btn">로그인</a>
                         </div>
 <!--                    </c:if>-->
                 </div>
@@ -36,30 +36,30 @@
                 <div class="col-lg-9">
                     <nav class="nav-menu">
                         <ul>
-                            <li><a href="cityInfo?cityName=all">CITY</a>
+                            <li><a href="cityInfo?cityName=all" th:text="#{header.menu.city}">도시 소개</a>
                                 <ul class="dropdown">
-                                    <li><a href="cityInfo?cityName=서울">서울</a></li>
-                                    <li><a href="cityInfo?cityName=강릉">강릉</a></li>
-                                    <li><a href="cityInfo?cityName=경주">경주</a></li>
-                                    <li><a href="cityInfo?cityName=부산">부산</a></li>
-                                    <li><a href="cityInfo?cityName=여수">여수</a></li>
-                                    <li><a href="cityInfo?cityName=제주">제주</a></li>
+                                    <li><a href="cityInfo?cityName=서울" th:text="#{city.SE}">서울</a></li>
+                                    <li><a href="cityInfo?cityName=강릉" th:text="#{city.GN}">강릉</a></li>
+                                    <li><a href="cityInfo?cityName=경주" th:text="#{city.KJ}">경주</a></li>
+                                    <li><a href="cityInfo?cityName=부산" th:text="#{city.BS}">부산</a></li>
+                                    <li><a href="cityInfo?cityName=여수" th:text="#{city.YS}">여수</a></li>
+                                    <li><a href="cityInfo?cityName=제주" th:text="#{city.JJ}">제주</a></li>
                                 </ul>
                             </li>
-                            <li><a href="schedule">Schedule</a>
+                            <li><a href="schedule" th:text="#{header.menu.schedule}">스케줄 보기</a>
                                 <ul class="dropdown">
-                                    <li><a href="schedule">내 스케줄 보기</a></li>
-                                    <li><a href="otherScheduleList?action=list">다른 사람 스케줄 보기</a></li>
+                                    <li><a href="schedule" th:text="#{schedule.menu.mySchedule}">내 스케줄 보기</a></li>
+                                    <li><a href="otherScheduleList?action=list" th:text="#{schedule.menu.otherSchedule}">다른 사람 스케줄 보기</a></li>
                                 </ul>
                             </li>
-                            <li><a href="review">Review</a></li>
-                            <li><a href="myPage">MyPage</a></li>
-                            <li><a href="customerCenter">Customer Center</a>
+                            <li><a href="review" th:text="#{header.menu.review}">후기 게시판</a></li>
+                            <li><a href="myPage" th:text="#{header.menu.myPage}">마이 페이지</a></li>
+                            <li><a href="customerCenter" th:text="#{header.menu.customerCenter}">고객 센터</a>
                                 <ul class="dropdown">
-                                    <li><a href="selectedCustomerCenterMenu?menu=Faq">FAQ</a></li>
-                                    <li><a href="selectedCustomerCenterMenu?menu=PersonalTerms">개인정보 처리방침</a></li>
-                                    <li><a href="selectedCustomerCenterMenu?menu=TermsAndConditions">이용약관</a></li>
-                                    <li><a href="selectedCustomerCenterMenu?menu=Notice">공지사항</a></li>
+                                    <li><a href="selectedCustomerCenterMenu?menu=Faq" th:text="#{customerCenter.menu.faq}">자주 묻는 질문들</a></li>
+                                    <li><a href="selectedCustomerCenterMenu?menu=PersonalTerms" th:text="#{customerCenter.menu.personalTerms}">개인정보 처리방침</a></li>
+                                    <li><a href="selectedCustomerCenterMenu?menu=TermsAndConditions" th:text="#{customerCenter.menu.TermsAndConditions}">이용약관</a></li>
+                                    <li><a href="selectedCustomerCenterMenu?menu=Notice" th:text="#{customerCenter.menu.Notice}">공지사항</a></li>
                                 </ul>
                             </li>
 

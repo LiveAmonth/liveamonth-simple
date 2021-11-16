@@ -214,13 +214,14 @@ ol {
 .site-btn {
     font-size: 14px;
     color: #ffffff;
-    background: #135762;
+    background: #507e8f;
     border: none;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     display: inline-block;
     padding: 14px 30px;
+    border-radius: 30px;
 }
 
 /* Preloder */
@@ -1724,7 +1725,7 @@ ol {
   Footer
 -----------------------*/
 .footer-section {
-    background: #103230;
+    background: #2E4750;
     padding-top: 70px;
 }
 
