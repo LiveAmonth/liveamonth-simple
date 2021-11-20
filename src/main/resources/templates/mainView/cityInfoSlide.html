@@ -10,8 +10,8 @@
                         <div class="col-lg-12">
                             <div class="hc-inner-text">
                                 <div class="hc-text">
-                                    <h4 th:text="${cityInfo.city.cityName}"></h4>
-                                    <p><span class="icon_pin_alt"></span>대한민국, [[${cityInfo.city.cityName}]]</p>
+                                    <h4 th:text="#{${cityInfo.city.cityName}}"></h4>
+                                    <p><span class="icon_pin_alt"></span>[[#{nation}]], [[#{${cityInfo.city.cityName}}]]</p>
                                 </div>
                                 <div class="hc-widget">
                                     <ul>
@@ -27,6 +27,4 @@
         </div>
     </div>
 </section>
-
-
 </html>

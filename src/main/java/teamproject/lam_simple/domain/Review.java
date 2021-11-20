@@ -1,12 +1,15 @@
 package teamproject.lam_simple.domain;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Getter
+@Table(name = "review")
+@Getter @Setter
+
 public class Review {
 
     @Id

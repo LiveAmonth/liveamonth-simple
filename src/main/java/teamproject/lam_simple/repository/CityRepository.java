@@ -3,6 +3,8 @@ package teamproject.lam_simple.repository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import teamproject.lam_simple.constants.CategoryConstants;
+import teamproject.lam_simple.constants.CategoryConstants.CityWeatherMonth;
 import teamproject.lam_simple.domain.*;
 
 import javax.persistence.EntityManager;
@@ -20,15 +22,15 @@ public class CityRepository{
                 .getResultList();
     }
 
-    public List<CityWeather> getAVGTempList(int month) {
+    public List<CityWeather> getAVGTempList(CityWeatherMonth month) {
         return em.createQuery("select c from CityWeather c where c.cityWeatherMonth = :month", CityWeather.class)
                 .setParameter("month", month)
                 .getResultList();
     }
 
-    public List<CityTransport> findCityTransportByName(String cityName) {
-        return em.createQuery("select c from CityTransport c where c.city.cityName = :cityName", CityTransport.class)
-                .setParameter("cityName", cityName)
+    public List<CityTransport> findCityTransportById(Long id) {
+        return em.createQuery("select c from CityTransport c where c.city.id = :id", CityTransport.class)
+                .setParameter("id", id)
                 .getResultList();
     }
 

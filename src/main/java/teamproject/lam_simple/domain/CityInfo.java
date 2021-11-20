@@ -10,6 +10,7 @@ import javax.persistence.*;
 import static javax.persistence.FetchType.*;
 
 @Entity
+@Table(name = "cityInfo")
 @Getter @Setter
 public class CityInfo {
 

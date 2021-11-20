@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import teamproject.lam_simple.constants.CategoryConstants;
 import teamproject.lam_simple.constants.CategoryConstants.CityTransportCategory;
+import teamproject.lam_simple.constants.CategoryConstants.CityTransportGrade;
 import teamproject.lam_simple.domain.City;
 import teamproject.lam_simple.domain.CityInfo;
 import teamproject.lam_simple.domain.CityTransport;
@@ -14,10 +15,12 @@ import teamproject.lam_simple.repository.CityRepository;
 
 import java.util.*;
 
+import static teamproject.lam_simple.constants.CategoryConstants.*;
+import static teamproject.lam_simple.constants.CategoryConstants.CityTransportGrade.*;
+
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
-@Slf4j
 public class CityService {
     private final CityRepository cityRepository;
 
@@ -27,22 +30,21 @@ public class CityService {
 
     public List<CityWeather> getAVGTempList(){
         Calendar calendar = Calendar.getInstance();
-        int month = calendar.get(Calendar.MONTH) + 1;
-        return cityRepository.getAVGTempList(month);
+        return cityRepository.getAVGTempList(CityWeatherMonth.values()[calendar.get(Calendar.MONTH)]);
     }
-    public HashMap<String, String> getCityTransportGradeList(){
-        HashMap<String, String> cityTransportGradeList = new HashMap<>();
+    public HashMap<Long, CityTransportGrade> getCityTransportGradeList(){
+        HashMap<Long, CityTransportGrade> cityTransportGradeList = new HashMap<>();
         for(City city: cityRepository.findAll()){
             int score = 0;
-            String grade;
-            List<CityTransport> transportVOS = cityRepository.findCityTransportByName(city.getCityName());
+            CityTransportGrade grade;
+            List<CityTransport> transportVOS = cityRepository.findCityTransportById(city.getId());
             for(CityTransportCategory transportCategory: CityTransportCategory.values()){
                 score += transportVOS.get(transportCategory.ordinal()).getCityStationCount() * transportCategory.getScore();
             }
-            if(score > 61) grade = "상";
-            else if(score>21 && score<=61) grade = "중";
-            else grade = "하";
-            cityTransportGradeList.put(city.getCityName(), grade);
+            if(score > 61) grade = T_GOOD;
+            else if(score>21 && score<=61) grade = T_FAIR;
+            else grade = T_POOR;
+            cityTransportGradeList.put(city.getId(), grade);
         }
         return cityTransportGradeList;
     }
