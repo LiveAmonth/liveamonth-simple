@@ -3,7 +3,7 @@
 <div class="col-lg-4" th:fragment="mainSideBar">
     <div class="blog-sidebar">
         <div class="subscribe-form">
-            <div th:unless="#{userVO}">
+            <div th:unless="${user}">
                 <div class="section-title sidebar-title-b">
                     <h6 th:text="#{login.signIn}">로그인</h6>
                 </div>
@@ -14,7 +14,7 @@
                     </div>
                 </div>
             </div>
-            <div th:if="#{userVO}">
+            <div th:if="${user}">
                 <div class="as-item">
                     <div class="user-pic">
 <!--                        <c:choose>-->

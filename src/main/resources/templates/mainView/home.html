@@ -4,17 +4,53 @@
         xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
         layout:decorator="Layout/layout"
 >
-<div layout:fragment="content">
-    <section class="hero-section" th:replace="~{mainView/cityInfoSlide :: cityInfoSlide(cityInfos)}"></section>
 
+<div layout:fragment="content">
+    <section class="hero-section" th:replace="mainView/cityInfoSlide :: cityInfoSlide"></section>
     <section class="blog-section spad">
-    <div class="container">
-        <div class="row">
-            <div th:replace="mainView/mainPopularContents :: mainPopularContents"></div>
-            <div th:replace="mainView/mainSideBar :: mainSideBar"></div>
-            <div th:replace="mainView/mainCityInfo :: mainCityInfo"></div>
+        <div class="container">
+            <div class="row">
+                <div th:replace="mainView/mainPopularContents :: mainPopularContents"></div>
+                <div th:replace="mainView/mainSideBar :: mainSideBar"></div>
+                <div th:replace="mainView/mainCityInfo :: mainCityInfo"></div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+    <script>
+        $(document).ready(function () {
+            var owl = $('.owl-carousel');
+            owl.owlCarousel({
+                loop: true,
+                nav: true,
+                margin: 10,
+                autoplay:true,
+                autoplayTimeout:2500,
+                autoplayHoverPause:true,
+                responsive: {
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:1
+                    },
+                    960:{
+                        items:1
+                    },
+                    1200:{
+                        items:1
+                    }
+                }
+            });
+            owl.on('mousewheel', '.owl-stage', function (e) {
+                if (e.deltaY > 0) {
+                    owl.trigger('next.owl');
+                } else {
+                    owl.trigger('prev.owl');
+                }
+                e.preventDefault();
+            });
+        });
+    </script>
+
 </div>
 </html>

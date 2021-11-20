@@ -19,18 +19,15 @@ public class HomeController {
     @GetMapping("/")
     public String home(Model model) {
         // 도시 슬라이드 정보
-        List<CityInfo> intro = cityService.getRandomCityInfo("INTRO");
-        for (CityInfo cityInfo : intro) {
-            System.out.println(cityInfo.getCityInfoImage());
-            System.out.println(cityInfo.getCity().getCityName());
-        }
-        model.addAttribute("cityInfos", intro);
+
+        model.addAttribute("cityInfos", cityService.findCityInfoByCategory("INTRO"));
         // 회원 정보
         // 도시 그리드 정보
+        model.addAttribute("cityWeathers", cityService.getAVGTempList());
+        model.addAttribute("cityTransports", cityService.getCityTransportGradeList());
         // 인기 스케줄, 게시판 정보
 
         return "mainView/home";
     }
-
 
 }

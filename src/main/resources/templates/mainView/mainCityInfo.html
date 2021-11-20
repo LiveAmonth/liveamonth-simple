@@ -9,19 +9,18 @@
         </div>
     </div>
     <div class="row property-filter">
-<!--        <c:forEach var="cityIntro" items="${cityIntroList}" varStatus="status">-->
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6" th:each="cityInfo,stat : ${cityInfos}">
                 <div class="ih-item square effect13 left_to_right property-item">
                     <a href="cityInfo?cityName=${cityIntro.cityVO.cityName}">
-                        <div class="pi-pic set-bg" data-setbg="${cityIntro.getCityInfoImageURL()}">
-                            <div class="label">${cityIntro.cityVO.cityName}</div>
+                        <div class="pi-pic set-bg" th:style="'background-image:url(img/intro/' + ${cityInfo.cityInfoImage} + ');'">
+                            <div class="label">[[${cityInfo.city.cityName}]]</div>
                         </div>
                         <div class="info">
-                            <h3>${cityIntro.cityVO.cityName}</h3>
+                            <h3>[[${cityInfo.city.cityName}]]</h3>
                             <p>
-                                ${currentMonthTempList[status.index].cityWeatherMonth}월 평균기온 :
-                                ${currentMonthTempList[status.index].cityWeatherAVGTemp}&#8451;
-                                <br><br>교통 등급 : ${cityTransportGradeList.get(cityIntro.cityVO.cityName)}
+                                [[${cityWeathers.get(stat.index).cityWeatherMonth}]][[#{city.month}]] [[#{city.weather.AVG}]] :
+                                [[${cityWeathers.get(stat.index).cityWeatherAVGTemp}]]&#8451;
+                                <br><br>[[#{city.transport.grade}]] : [[${cityTransports.get(cityInfo.city.cityName)}]]
                             </p>
                         </div>
                     </a>

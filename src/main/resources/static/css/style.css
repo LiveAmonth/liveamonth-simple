@@ -497,7 +497,7 @@ ol {
     overflow: hidden;
     background: #ffffff;
     padding-bottom: 5px;
-    height: 400px;
+    height: 410px;
 }
 
 .hs-slider.owl-carousel .owl-stage-outer {
@@ -530,7 +530,7 @@ ol {
 }
 
 .hs-item {
-    background-size: 1200px 480px;
+    background-size: 1200px 400px;
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
@@ -538,8 +538,6 @@ ol {
 }
 
 .hs-item .hc-inner-text {
-
-
     background: rgba(255, 255, 255, 0.4);
     padding: 40px;
     overflow: hidden;

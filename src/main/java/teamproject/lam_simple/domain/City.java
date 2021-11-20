@@ -1,32 +1,33 @@
 package teamproject.lam_simple.domain;
 
 import lombok.Getter;
+import lombok.Setter;
+import teamproject.lam_simple.constants.CategoryConstants;
+import teamproject.lam_simple.constants.CategoryConstants.CityCategory;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Getter
+@Table(name = "city")
+@Getter @Setter
 public class City {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue
     @Column(name = "cityNO")
     private long id;
 
-    @Column(nullable = false)
-    private String cityName;
+    @Enumerated(EnumType.STRING)
+    private CityCategory cityName;
 
     @OneToMany
-    private List<CityInfo> cityInfos = new ArrayList<CityInfo>();
-    @OneToMany
-    private List<CityWeather> cityWeathers = new ArrayList<CityWeather>();
-    @OneToMany
-    private List<CityTransport> cityTransports = new ArrayList<CityTransport>();
+    private List<CityInfo> cityInfos = new ArrayList<>();
 
-//    public City(long id, String cityName) {
-//        this.id = id;
-//        this.cityName = cityName;
-//    }
+    @OneToMany
+    private List<CityWeather> cityWeathers = new ArrayList<>();
+
+    @OneToMany
+    private List<CityTransport> cityTransports = new ArrayList<>();
+
 }

@@ -12,9 +12,9 @@
                 </div>
                 <div class="col-lg-10">
                     <div class="ht-widget">
-                        <a href="logout" th:text="#{login.logout}" th:if="${userVO}" class="hw-btn">로그아웃</a>
-                        <a href="signIn" th:text="#{login.signIn}" th:unless="${userVO}" class="hw-btn">로그인</a>
-                        <a href="signUp" th:text="#{login.signUp}" th:unless="${userVO}" class="hw-btn">회원가입</a>
+                        <a href="logout" th:text="#{login.logout}" th:if="${user}" class="hw-btn">로그아웃</a>
+                        <a href="signIn" th:text="#{login.signIn}" th:unless="${user}" class="hw-btn">로그인</a>
+                        <a href="signUp" th:text="#{login.signUp}" th:unless="${user}" class="hw-btn">회원가입</a>
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="hn-social">
-                        <p th:text="#{hello.name}" th:if="${userVO}"></p>
+                        <p th:text="#{hello.name}" th:if="${user}"></p>
                     </div>
                 </div>
             </div>

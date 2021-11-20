@@ -1,24 +1,21 @@
 package teamproject.lam_simple.domain;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
-@Getter
+@Getter @Setter
 public class CityTransport {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue
     @Column(name = "cityTransportNO")
     private long id;
-
-    @Column(nullable = false)
     private String cityTransportCategory;
-    @Column(nullable = false)
     private int cityStationCount;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cityNO")
     private City city;
 

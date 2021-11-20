@@ -1,28 +1,24 @@
 package teamproject.lam_simple.domain;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
-@Getter
+@Getter @Setter
 public class CityWeather {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue
     @Column(name = "cityWeatherNO")
     private long id;
 
-    @Column(nullable = false)
     private int cityWeatherMonth;
-    @Column(nullable = false)
     private float cityWeatherMaxTemp;
-    @Column(nullable = false)
     private float cityWeatherMinTemp;
-    @Column(nullable = false)
     private float cityWeatherAVGTemp;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cityNO")
     private City city;
 
