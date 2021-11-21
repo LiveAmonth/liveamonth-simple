@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lagn="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head th:replace="fragments/config :: configFragment"></head>
+
+<body>
+<!-- header 시작 -->
+<header th:replace="fragments/header :: headerFragment"></header>
+<!-- header 끝 -->
+<!-- content 시작 -->
+<section class="blog-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2">
+                <div layout:fragment="sideMenuBar"></div>
+            </div>
+            <div class="col-lg-10" id="body">
+                <div layout:fragment="content"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- content 끝 -->
+<!-- footer 시작 -->
+<footer th:replace="fragments/footer :: footerFragment"></footer>
+<!-- footer 끝 -->
+</body>
+
+</html>

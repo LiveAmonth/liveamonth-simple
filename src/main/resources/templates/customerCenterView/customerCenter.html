@@ -2,44 +2,15 @@
 <html
         xmlns:th="http://www.thymeleaf.org"
         xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-        layout:decorator="Layout/layout"
+        layout:decorator="layout/contentsLayout"
 >
 <th:block layout:fragment="css">
     <link rel="stylesheet" th:href="@{/css/faqStyle.css}" type="text/css">
-
 </th:block>
 <th:block layout:fragment="script">
     <script type="text/javascript" th:src="@{/js/TweenMax.min.js}"></script>
-
 </th:block>
 
-<div layout:fragment="content">
-    <section class="blog-section spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-2">
-                    <div class="blog-sidebar">
-                        <div class="feature-post">
-                            <div class="section-title sidebar-title-b">
-                                <h6 th:text="#{header.menu.customerCenter}">고객센터</h6>
-                            </div>
-                            <div class="recent-post">
-                                <div th:each="customerMenu :${customerCenterMenus}">
-                                    <div class="rp-item">
-                                        <div class="rp-text">
-                                            <a th:href="@{/customerCenter(menu=${customerMenu})}" th:text="#{${customerMenu}}"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-10" id="body">
-                    <div th:replace="customerCenterView/customerCenterContents :: ${menu}"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
+<div layout:fragment="sideMenuBar" th:replace="fragments/sideMenuBar :: sideMenuBar('customerCenter')"></div>
+<div layout:fragment="content" th:replace="customerCenterView/customerCenterContents :: ${menu}"></div>
 </html>

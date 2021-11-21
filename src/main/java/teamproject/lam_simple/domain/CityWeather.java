@@ -7,6 +7,8 @@ import teamproject.lam_simple.constants.CategoryConstants.CityWeatherMonth;
 
 import javax.persistence.*;
 
+import static javax.persistence.FetchType.*;
+
 @Entity
 @Table(name = "cityWeather")
 @Getter @Setter
@@ -23,7 +25,7 @@ public class CityWeather {
     private float cityWeatherMinTemp;
     private float cityWeatherAVGTemp;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "cityNO")
     private City city;
 

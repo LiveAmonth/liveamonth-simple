@@ -18,7 +18,7 @@ public class CustomerCenterController {
 
     @GetMapping
     public String customerCenter(@RequestParam("menu") CustomerCenterCategory menu,Model model) {
-        model.addAttribute("customerCenterMenus", CustomerCenterCategory.values());
+        model.addAttribute("sideBarMenus", CustomerCenterCategory.values());
         model.addAttribute("menu", menu);
         return "/customerCenterView/customerCenter";
     }

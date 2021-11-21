@@ -1,7 +1,8 @@
 package teamproject.lam_simple.constants;
 
 public class CategoryConstants {
-    public enum CityCategory{SE,GN,GJ,BS,YS,JJ}
+    public enum CityNames {SE,GN,GJ,BS,YS,JJ}
+    public enum CityInfoCategory {INTRO,FOOD,VIEW}
     public enum CityTransportGrade{T_GOOD,T_FAIR,T_POOR}
     public enum CityWeatherMonth{JAN,FEB,MAR,APR,MAY,JUN,JUL,AUG,SEP,OCT,NOV,DEC}
     public enum CityTransportCategory {

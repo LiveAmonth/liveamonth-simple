@@ -5,10 +5,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import teamproject.lam_simple.constants.CategoryConstants;
 import teamproject.lam_simple.domain.CityInfo;
 import teamproject.lam_simple.service.CityService;
 
 import java.util.List;
+
+import static teamproject.lam_simple.constants.CategoryConstants.CityInfoCategory.INTRO;
 
 @Controller
 @RequiredArgsConstructor
@@ -20,7 +23,7 @@ public class HomeController {
     public String home(Model model) {
         // 도시 슬라이드 정보
 
-        model.addAttribute("cityInfos", cityService.findCityInfoByCategory("INTRO"));
+        model.addAttribute("cityInfos", cityService.findCityInfoByCategory(INTRO));
         // 회원 정보
         // 도시 그리드 정보
         model.addAttribute("cityWeathers", cityService.getAVGTempList());

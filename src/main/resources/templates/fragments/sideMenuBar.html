@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div class="blog-sidebar" th:fragment="sideMenuBar(title)">
+    <div class="feature-post">
+        <div class="section-title sidebar-title-b">
+            <h6 th:text="#{${title}}">메뉴 이름</h6>
+        </div>
+        <div class="recent-post">
+            <div th:each="sbMenu :${sideBarMenus}">
+                <div class="rp-item">
+                    <div class="rp-text">
+                        <a th:href="@{|/${title}?menu=${sbMenu}|}" th:text="#{${sbMenu}}"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div class="blog-sidebar" th:fragment="customerCenterMenuBar">-->
+<!--    <div class="feature-post">-->
+<!--        <div class="section-title sidebar-title-b">-->
+<!--            <h6 th:text="#{city}">고객센터</h6>-->
+<!--        </div>-->
+<!--        <div class="recent-post">-->
+<!--            <div th:each="cityMenu :${customerCenterMenus}">-->
+<!--                <div class="rp-item">-->
+<!--                    <div class="rp-text">-->
+<!--                        <a th:href="@{/city(menu=${cityMenu})}" th:text="#{${cityMenu}}"></a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+</html>

@@ -2,12 +2,11 @@ package teamproject.lam_simple.domain;
 
 import lombok.Getter;
 import lombok.Setter;
-import teamproject.lam_simple.constants.EntityConstants;
-import teamproject.lam_simple.constants.EntityConstants.CityInfoCategory;
+import teamproject.lam_simple.constants.CategoryConstants.CityInfoCategory;
 
 import javax.persistence.*;
 
-import static javax.persistence.FetchType.*;
+import static javax.persistence.FetchType.LAZY;
 
 @Entity
 @Table(name = "cityInfo")
@@ -18,12 +17,13 @@ public class CityInfo {
     @Column(name = "cityInfoNO")
     private long id;
 
-    private String cityInfoCategory;
+    @Enumerated(EnumType.STRING)
+    private CityInfoCategory cityInfoCategory;
+
     private String cityInfoDesc;
     private String cityInfoImage;
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "cityNO")
     private City city;
-
 }

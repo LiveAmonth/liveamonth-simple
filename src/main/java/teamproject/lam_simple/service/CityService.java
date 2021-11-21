@@ -1,12 +1,9 @@
 package teamproject.lam_simple.service;
 
-import groovy.util.logging.Slf4j;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import teamproject.lam_simple.constants.CategoryConstants;
-import teamproject.lam_simple.constants.CategoryConstants.CityTransportCategory;
-import teamproject.lam_simple.constants.CategoryConstants.CityTransportGrade;
+import teamproject.lam_simple.constants.CategoryConstants.*;
 import teamproject.lam_simple.domain.City;
 import teamproject.lam_simple.domain.CityInfo;
 import teamproject.lam_simple.domain.CityTransport;
@@ -24,7 +21,7 @@ import static teamproject.lam_simple.constants.CategoryConstants.CityTransportGr
 public class CityService {
     private final CityRepository cityRepository;
 
-    public List<CityInfo> findCityInfoByCategory(String category) {
+    public List<CityInfo> findCityInfoByCategory(CityInfoCategory category) {
         return cityRepository.findCityInfoByCategory(category);
     }
 
@@ -47,5 +44,30 @@ public class CityService {
             cityTransportGradeList.put(city.getId(), grade);
         }
         return cityTransportGradeList;
+    }
+
+    public Map<String, Object> findCityInfoByName(CityNames menu) {
+        List<CityInfo> cityInfos = cityRepository.findCityInfoByName(menu);
+        Map<String, Object> cityInfoMap = new HashMap<>();
+        List<CityInfo> views = new ArrayList<>();
+        List<CityInfo> foods = new ArrayList<>();
+        for (CityInfo cityInfo : cityInfos) {
+            if(cityInfo.getCityInfoCategory() == CityInfoCategory.INTRO){
+                cityInfoMap.put(CityInfoCategory.INTRO.name(), cityInfo);
+            }else if(cityInfo.getCityInfoCategory() == CityInfoCategory.VIEW){
+                views.add(cityInfo);
+            }else{
+                foods.add(cityInfo);
+            }
+        }
+        cityInfoMap.put(CityInfoCategory.VIEW.name(), views);
+        cityInfoMap.put(CityInfoCategory.FOOD.name(), foods);
+        return cityInfoMap;
+    }
+    public List<CityTransport> findCityTransportByName(CityNames menu) {
+        return cityRepository.findCityTransportByName(menu);
+    }
+    public List<CityWeather> findCityWeatherByName(CityNames menu) {
+        return cityRepository.findCityWeatherByName(menu);
     }
 }

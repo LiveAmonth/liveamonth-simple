@@ -2,8 +2,7 @@ package teamproject.lam_simple.domain;
 
 import lombok.Getter;
 import lombok.Setter;
-import teamproject.lam_simple.constants.CategoryConstants;
-import teamproject.lam_simple.constants.CategoryConstants.CityCategory;
+import teamproject.lam_simple.constants.CategoryConstants.CityNames;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -19,7 +18,7 @@ public class City {
     private long id;
 
     @Enumerated(EnumType.STRING)
-    private CityCategory cityName;
+    private CityNames cityName;
 
     @OneToMany
     private List<CityInfo> cityInfos = new ArrayList<>();

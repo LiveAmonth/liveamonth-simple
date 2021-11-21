@@ -2,7 +2,7 @@
 <html
         xmlns:th="http://www.thymeleaf.org"
         xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-        layout:decorator="Layout/layout"
+        layout:decorator="layout/basicLayout"
 >
 
 <div layout:fragment="content">
@@ -12,7 +12,7 @@
             <div class="row">
                 <div th:replace="mainView/mainPopularContents :: mainPopularContents"></div>
                 <div th:replace="mainView/mainSideBar :: mainSideBar"></div>
-                <div th:replace="mainView/mainCityInfo :: mainCityInfo"></div>
+                <div th:replace="cityView/cityInfo :: cityInfo"></div>
             </div>
         </div>
     </section>
@@ -51,6 +51,5 @@
             });
         });
     </script>
-
 </div>
 </html>

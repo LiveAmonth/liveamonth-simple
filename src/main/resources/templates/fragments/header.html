@@ -30,26 +30,26 @@
                 <div class="col-lg-9">
                     <nav class="nav-menu">
                         <ul>
-                            <li><a href="/cityInfo?cityName=all" th:text="#{header.menu.city}">도시 소개</a>
+                            <li><a href="/city?menu=SE" th:text="#{city}">도시 소개</a>
                                 <ul class="dropdown">
-                                    <li><a href="/cityInfo?cityName=서울" th:text="#{SE}">서울</a></li>
-                                    <li><a href="/cityInfo?cityName=강릉" th:text="#{GN}">강릉</a></li>
-                                    <li><a href="/cityInfo?cityName=경주" th:text="#{GJ}">경주</a></li>
-                                    <li><a href="/cityInfo?cityName=부산" th:text="#{BS}">부산</a></li>
-                                    <li><a href="/cityInfo?cityName=여수" th:text="#{YS}">여수</a></li>
-                                    <li><a href="/cityInfo?cityName=제주" th:text="#{JJ}">제주</a></li>
+                                    <li><a href="/city?menu=SE" th:text="#{SE}">서울</a></li>
+                                    <li><a href="/city?menu=GN" th:text="#{GN}">강릉</a></li>
+                                    <li><a href="/city?menu=GJ" th:text="#{GJ}">경주</a></li>
+                                    <li><a href="/city?menu=BS" th:text="#{BS}">부산</a></li>
+                                    <li><a href="/city?menu=YS" th:text="#{YS}">여수</a></li>
+                                    <li><a href="/city?menu=JJ" th:text="#{JJ}">제주</a></li>
                                 </ul>
                             </li>
-                            <li><a href="/schedule" th:text="#{header.menu.schedule}">스케줄 보기</a>
+                            <li><a href="/schedule" th:text="#{schedule}">스케줄 보기</a>
                                 <ul class="dropdown">
                                     <li><a href="schedule" th:text="#{schedule.menu.mySchedule}">내 스케줄 보기</a></li>
                                     <li><a href="otherScheduleList?action=list"
                                            th:text="#{schedule.menu.otherSchedule}">다른 사람 스케줄 보기</a></li>
                                 </ul>
                             </li>
-                            <li><a href="/review" th:text="#{header.menu.review}">후기 게시판</a></li>
-                            <li><a href="/myPage" th:text="#{header.menu.myPage}">마이 페이지</a></li>
-                            <li><a href="/customerCenter?menu=faq" th:text="#{header.menu.customerCenter}">고객 센터</a>
+                            <li><a href="/review" th:text="#{review}">후기 게시판</a></li>
+                            <li><a href="/myPage" th:text="#{myPage}">마이 페이지</a></li>
+                            <li><a href="/customerCenter?menu=faq" th:text="#{customerCenter}">고객 센터</a>
                                 <ul class="dropdown">
                                     <li><a href="/customerCenter?menu=faq"
                                            th:text="#{faq}">자주 묻는 질문들</a></li>

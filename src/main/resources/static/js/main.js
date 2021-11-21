@@ -61,18 +61,18 @@
     /*------------------
         Carousel Slider
     --------------------*/
-    var hero_s = $(".hs-slider");
-    hero_s.owlCarousel({
-        loop: true,
-        margin: 20,
-        nav: true,
-        items: 1,
-        dots: false,
-        navText: ['<i class="arrow_left"></i>', '<i class="arrow_right"></i>'],
-        smartSpeed: 1200,
-        autoHeight: false,
-        autoplay: true
-    });
+    // var hero_s = $(".hs-slider");
+    // hero_s.owlCarousel({
+    //     loop: true,
+    //     margin: 20,
+    //     nav: true,
+    //     items: 1,
+    //     dots: false,
+    //     navText: ['<i class="arrow_left"></i>', '<i class="arrow_right"></i>'],
+    //     smartSpeed: 1200,
+    //     autoHeight: false,
+    //     autoplay: true
+    // });
 
     /*------------------
         Team Slider
