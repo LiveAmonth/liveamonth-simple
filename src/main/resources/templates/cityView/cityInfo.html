@@ -11,15 +11,15 @@
     <div class="row property-filter">
             <div class="col-lg-4 col-md-6" th:each="cityInfo,stat : ${cityInfos}">
                 <div class="ih-item square effect13 left_to_right property-item">
-                    <a th:href="@{|/city?menu=${cityInfo.city.cityName}|}">
-                        <div class="pi-pic set-bg" th:style="'background-image:url(img/intro/' + ${cityInfo.cityInfoImage} + ');'">
-                            <div class="label">[[#{${cityInfo.city.cityName}}]]</div>
+                    <a th:href="@{|/city?menu=${cityInfo.city.name}|}">
+                        <div class="pi-pic set-bg" th:style="'background-image:url(img/intro/' + ${cityInfo.image} + ');'">
+                            <div class="label">[[#{${cityInfo.city.name}}]]</div>
                         </div>
                         <div class="info">
-                            <h3>[[#{${cityInfo.city.cityName}}]]</h3>
+                            <h3>[[#{${cityInfo.city.name}}]]</h3>
                             <p>
-                                [[#{${cityWeathers.get(stat.index).cityWeatherMonth}}]] [[#{city.weather.AVG}]] :
-                                [[${cityWeathers.get(stat.index).cityWeatherAVGTemp}]]&#8451;
+                                [[#{${cityWeathers.get(stat.index).month}}]] [[#{city.weather.AVG}]] :
+                                [[${cityWeathers.get(stat.index).average_degree}]]&#8451;
                                 <br><br>[[#{city.transport.grade}]] : [[#{${cityTransports.get(cityInfo.city.id)}}]]
                             </p>
                         </div>

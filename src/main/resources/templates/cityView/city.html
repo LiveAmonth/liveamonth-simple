@@ -2,7 +2,7 @@
 <html
         xmlns:th="http://www.thymeleaf.org"
         xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-        layout:decorator="layout/basicLayout"
+        layout:decorate="~{layout/basicLayout}"
 >
 <div layout:fragment="content" th:replace="cityView/cityContents :: cityContents"></div>
 </html>

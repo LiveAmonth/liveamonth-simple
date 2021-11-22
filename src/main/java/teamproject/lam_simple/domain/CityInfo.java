@@ -9,21 +9,22 @@ import javax.persistence.*;
 import static javax.persistence.FetchType.LAZY;
 
 @Entity
-@Table(name = "cityInfo")
+@Table(name = "city_infos")
 @Getter @Setter
 public class CityInfo {
 
     @Id @GeneratedValue
-    @Column(name = "cityInfoNO")
+    @Column(name = "city_info_id")
     private long id;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "city_info_category")
     private CityInfoCategory cityInfoCategory;
 
-    private String cityInfoDesc;
-    private String cityInfoImage;
+    private String content;
+    private String image;
 
     @ManyToOne(fetch = LAZY)
-    @JoinColumn(name = "cityNO")
+    @JoinColumn(name = "city_id")
     private City city;
 }

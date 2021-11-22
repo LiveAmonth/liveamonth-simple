@@ -9,16 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "city")
+@Table(name = "cities")
 @Getter @Setter
 public class City {
 
     @Id @GeneratedValue
-    @Column(name = "cityNO")
+    @Column(name = "city_id")
     private long id;
 
     @Enumerated(EnumType.STRING)
-    private CityNames cityName;
+    private CityNames name;
 
     @OneToMany
     private List<CityInfo> cityInfos = new ArrayList<>();

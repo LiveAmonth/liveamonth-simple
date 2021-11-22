@@ -4,8 +4,8 @@ public class CategoryConstants {
     public enum CityNames {SE,GN,GJ,BS,YS,JJ}
     public enum CityInfoCategory {INTRO,FOOD,VIEW}
     public enum CityTransportGrade{T_GOOD,T_FAIR,T_POOR}
-    public enum CityWeatherMonth{JAN,FEB,MAR,APR,MAY,JUN,JUL,AUG,SEP,OCT,NOV,DEC}
-    public enum CityTransportCategory {
+    public enum Month {JAN,FEB,MAR,APR,MAY,JUN,JUL,AUG,SEP,OCT,NOV,DEC}
+    public enum TransportCategory {
         T_SUBWAY(4),
         T_BUS(5),
         T_BICYCLE(6),
@@ -13,7 +13,7 @@ public class CategoryConstants {
         T_TRAIN(2),
         T_AIRPORT(1);
         private final int score;
-        CityTransportCategory(int score) {this.score = score;}
+        TransportCategory(int score) {this.score = score;}
         public int getScore() {
             return this.score;
         }

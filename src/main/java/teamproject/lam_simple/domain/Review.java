@@ -6,29 +6,32 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "review")
-@Getter @Setter
+import static javax.persistence.FetchType.*;
 
+@Entity
+@Table(name = "reviews")
+@Getter @Setter
 public class Review {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "reviewNO")
+    @GeneratedValue
+    @Column(name = "review_id")
     private Long id;
 
     @Column
-    private String reviewCategory;
+    private String review_category;
 
     @Lob
-    private String reviewDesc;
+    private String content;
 
-    private LocalDateTime reviewDate;
+    private LocalDateTime review_date;
 
     @Column
-    private int reviewViewCount;
+    private int view_count;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userNO")
+    @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "user_id")
     private User user;
+
+
 }

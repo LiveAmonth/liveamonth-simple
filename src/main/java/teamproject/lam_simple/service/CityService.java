@@ -3,7 +3,6 @@ package teamproject.lam_simple.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import teamproject.lam_simple.constants.CategoryConstants.*;
 import teamproject.lam_simple.domain.City;
 import teamproject.lam_simple.domain.CityInfo;
 import teamproject.lam_simple.domain.CityTransport;
@@ -27,7 +26,7 @@ public class CityService {
 
     public List<CityWeather> getAVGTempList(){
         Calendar calendar = Calendar.getInstance();
-        return cityRepository.getAVGTempList(CityWeatherMonth.values()[calendar.get(Calendar.MONTH)]);
+        return cityRepository.getAVGTempList(Month.values()[calendar.get(Calendar.MONTH)]);
     }
     public HashMap<Long, CityTransportGrade> getCityTransportGradeList(){
         HashMap<Long, CityTransportGrade> cityTransportGradeList = new HashMap<>();
@@ -35,8 +34,8 @@ public class CityService {
             int score = 0;
             CityTransportGrade grade;
             List<CityTransport> transportVOS = cityRepository.findCityTransportById(city.getId());
-            for(CityTransportCategory transportCategory: CityTransportCategory.values()){
-                score += transportVOS.get(transportCategory.ordinal()).getCityStationCount() * transportCategory.getScore();
+            for(TransportCategory transportCategory: TransportCategory.values()){
+                score += transportVOS.get(transportCategory.ordinal()).getStation_count() * transportCategory.getScore();
             }
             if(score > 61) grade = T_GOOD;
             else if(score>21 && score<=61) grade = T_FAIR;

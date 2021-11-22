@@ -47,12 +47,12 @@
                                             <div class="row" th:with="cityInfo=${cityInfos['INTRO']}">
                                                 <div class="col-lg-4 col-md-6 mix">
                                                     <div class="cityImg set-bg"
-                                                         th:style="'background-image:url(img/intro/' + ${cityInfo.cityInfoImage} + ');'">
+                                                         th:style="'background-image:url(img/intro/' + ${cityInfo.image} + ');'">
                                                         <div class="label" th:text="#{${menu}}">도시 이름</div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-8">
-                                                    <p class="cityText" th:text="${cityInfo.cityInfoDesc}">도시 소개 정보</p>
+                                                    <p class="cityText" th:text="${cityInfo.content}">도시 소개 정보</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -66,9 +66,9 @@
                                                 </li>
                                                 <li th:each="num : ${#numbers.sequence(0,2)}">
                                                         <span class="type-name"
-                                                              th:text="#{${cityTransports[num].cityTransportCategory}}">교통 종류</span>
+                                                              th:text="#{${cityTransports[num].transport_category}}">교통 종류</span>
                                                     <span class="type-value"
-                                                          th:text="${cityTransports[num].cityStationCount}">정류장 및 노선 개수</span>
+                                                          th:text="${cityTransports[num].station_count}">정류장 및 노선 개수</span>
                                                 </li>
                                                 <li><span class="type-footer"> &nbsp;</span></li>
                                             </ul>
@@ -76,9 +76,9 @@
                                                 <li><span class="type-title"> &nbsp;</span></li>
                                                 <li th:each="num : ${#numbers.sequence(3,5)}">
                                                         <span class="type-name"
-                                                              th:text="#{${cityTransports[num].cityTransportCategory}}">교통 종류</span>
+                                                              th:text="#{${cityTransports[num].transport_category}}">교통 종류</span>
                                                     <span class="type-value"
-                                                          th:text="${cityTransports[num].cityStationCount}">정류장 및 노선 개수</span>
+                                                          th:text="${cityTransports[num].station_count}">정류장 및 노선 개수</span>
                                                 </li>
                                                 <li class="type-footer" th:text="#{city.tab.transport.source}">출처 표시
                                                 </li>
@@ -94,8 +94,8 @@
                                                 </li>
                                                 <li th:each="num : ${#numbers.sequence(0,5)}">
                                                         <span class="type-name"
-                                                              th:text="#{${cityWeathers[num].cityWeatherMonth}}">월</span>
-                                                    <span class="type-value">[[#{city.tab.weather.avg}]] : [[${cityWeathers[num].cityWeatherAVGTemp}]]&#8451; | [[#{city.tab.weather.low}]] : [[${cityWeathers[num].cityWeatherMinTemp}]]&#8451; | [[#{city.tab.weather.high}]] : [[${cityWeathers[num].cityWeatherMaxTemp}]]&#8451;</span>
+                                                              th:text="#{${cityWeathers[num].month}}">월</span>
+                                                    <span class="type-value">[[#{city.tab.weather.avg}]] : [[${cityWeathers[num].average_degree}]]&#8451; | [[#{city.tab.weather.low}]] : [[${cityWeathers[num].min_degree}]]&#8451; | [[#{city.tab.weather.high}]] : [[${cityWeathers[num].max_degree}]]&#8451;</span>
                                                 </li>
                                                 <li><span class="type-footer"> &nbsp;</span></li>
                                             </ul>
@@ -103,8 +103,8 @@
                                                 <li><span class="type-title"> &nbsp;</span></li>
                                                 <li th:each="num : ${#numbers.sequence(6,11)}">
                                                         <span class="type-name"
-                                                              th:text="#{${cityWeathers[num].cityWeatherMonth}}">월</span>
-                                                    <span class="type-value">[[#{city.tab.weather.avg}]] : [[${cityWeathers[num].cityWeatherAVGTemp}]]&#8451; | [[#{city.tab.weather.low}]] : [[${cityWeathers[num].cityWeatherMinTemp}]]&#8451; | [[#{city.tab.weather.high}]] : [[${cityWeathers[num].cityWeatherMaxTemp}]]&#8451;</span>
+                                                              th:text="#{${cityWeathers[num].month}}">월</span>
+                                                    <span class="type-value">[[#{city.tab.weather.avg}]] : [[${cityWeathers[num].average_degree}]]&#8451; | [[#{city.tab.weather.low}]] : [[${cityWeathers[num].min_degree}]]&#8451; | [[#{city.tab.weather.high}]] : [[${cityWeathers[num].max_degree}]]&#8451;</span>
                                                 </li>
                                                 <li class="type-footer" th:text="#{city.tab.weather.source}">출처 표시</li>
                                                 </li>
@@ -134,8 +134,8 @@
                     <div class="col-lg-4 col-md-6" th:each="cityView : ${cityInfos['VIEW']}">
                         <div class="as-item">
                             <div class="as-pic set-bg"
-                                 th:style="'background-image:url(img/view/' + ${cityView.cityInfoImage} + ');'">
-                                <div class="label" th:text="${cityView.cityInfoDesc}">사진 제목</div>
+                                 th:style="'background-image:url(img/view/' + ${cityView.image} + ');'">
+                                <div class="label" th:text="${cityView.content}">사진 제목</div>
                             </div>
                         </div>
                     </div>
@@ -144,8 +144,8 @@
                     <div class="col-lg-4 col-md-6" th:each="cityFood : ${cityInfos['FOOD']}">
                         <div class="as-item">
                             <div class="as-pic set-bg"
-                                 th:style="'background-image:url(img/food/' + ${cityFood.cityInfoImage} + ');'">
-                                <div class="label" th:text="${cityFood.cityInfoDesc}">사진 제목</div>
+                                 th:style="'background-image:url(img/food/' + ${cityFood.image} + ');'">
+                                <div class="label" th:text="${cityFood.content}">사진 제목</div>
                             </div>
                         </div>
                     </div>

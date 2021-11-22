@@ -2,15 +2,12 @@
 <html
         xmlns:th="http://www.thymeleaf.org"
         xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-        layout:decorator="layout/contentsLayout"
+        layout:decorate="~{layout/contentsLayout}"
 >
-<th:block layout:fragment="css">
+<head>
     <link rel="stylesheet" th:href="@{/css/faqStyle.css}" type="text/css">
-</th:block>
-<th:block layout:fragment="script">
     <script type="text/javascript" th:src="@{/js/TweenMax.min.js}"></script>
-</th:block>
-
+</head>
 <div layout:fragment="sideMenuBar" th:replace="fragments/sideMenuBar :: sideMenuBar('customerCenter')"></div>
 <div layout:fragment="content" th:replace="customerCenterView/customerCenterContents :: ${menu}"></div>
 </html>

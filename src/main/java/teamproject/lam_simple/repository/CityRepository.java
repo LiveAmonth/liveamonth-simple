@@ -2,9 +2,8 @@ package teamproject.lam_simple.repository;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import teamproject.lam_simple.constants.CategoryConstants;
 import teamproject.lam_simple.constants.CategoryConstants.CityNames;
-import teamproject.lam_simple.constants.CategoryConstants.CityWeatherMonth;
+import teamproject.lam_simple.constants.CategoryConstants.Month;
 import teamproject.lam_simple.domain.City;
 import teamproject.lam_simple.domain.CityInfo;
 import teamproject.lam_simple.domain.CityTransport;
@@ -27,23 +26,23 @@ public class CityRepository{
                 .getResultList();
     }
     public List<CityInfo> findCityInfoByName(CityNames name){
-        return em.createQuery("select c from CityInfo c where c.city.cityName = :name", CityInfo.class)
+        return em.createQuery("select c from CityInfo c where c.city.name = :name", CityInfo.class)
                 .setParameter("name", name)
                 .getResultList();
     }
     public List<CityTransport> findCityTransportByName(CityNames name){
-        return em.createQuery("select c from CityTransport c where c.city.cityName = :name", CityTransport.class)
+        return em.createQuery("select c from CityTransport c where c.city.name = :name", CityTransport.class)
                 .setParameter("name", name)
                 .getResultList();
     }
     public List<CityWeather> findCityWeatherByName(CityNames name){
-        return em.createQuery("select c from CityWeather c where c.city.cityName = :name", CityWeather.class)
+        return em.createQuery("select c from CityWeather c where c.city.name = :name", CityWeather.class)
                 .setParameter("name", name)
                 .getResultList();
     }
 
-    public List<CityWeather> getAVGTempList(CityWeatherMonth month) {
-        return em.createQuery("select c from CityWeather c where c.cityWeatherMonth = :month", CityWeather.class)
+    public List<CityWeather> getAVGTempList(Month month) {
+        return em.createQuery("select c from CityWeather c where c.month = :month", CityWeather.class)
                 .setParameter("month", month)
                 .getResultList();
     }
