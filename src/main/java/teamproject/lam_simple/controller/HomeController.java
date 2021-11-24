@@ -9,8 +9,10 @@ import teamproject.lam_simple.constants.CategoryConstants;
 import teamproject.lam_simple.domain.CityInfo;
 import teamproject.lam_simple.service.CityService;
 
+import java.util.Calendar;
 import java.util.List;
 
+import static teamproject.lam_simple.constants.CategoryConstants.*;
 import static teamproject.lam_simple.constants.CategoryConstants.CityInfoCategory.INTRO;
 
 @Controller
@@ -22,12 +24,10 @@ public class HomeController {
     @GetMapping("/")
     public String home(Model model) {
         // 도시 슬라이드 정보
-
         model.addAttribute("cityInfos", cityService.findCityInfoByCategory(INTRO));
         // 회원 정보
         // 도시 그리드 정보
-        model.addAttribute("cityWeathers", cityService.getAVGTempList());
-        model.addAttribute("cityTransports", cityService.getCityTransportGradeList());
+        model.addAttribute("month", Month.values()[Calendar.getInstance().get(Calendar.MONTH)]);
         // 인기 스케줄, 게시판 정보
 
         return "mainView/home";

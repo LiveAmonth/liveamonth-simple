@@ -20,8 +20,6 @@ public class CityController {
         model.addAttribute("cityList", CityNames.values());
         model.addAttribute("menu", menu);
         model.addAttribute("cityInfos", cityService.findCityInfoByName(menu));
-        model.addAttribute("cityTransports", cityService.findCityTransportByName(menu));
-        model.addAttribute("cityWeathers", cityService.findCityWeatherByName(menu));
         return "/cityView/city";
     }
 

@@ -17,11 +17,4 @@ import static teamproject.lam_simple.constants.CategoryConstants.CityInfoCategor
 class CityServiceTest {
     @Autowired
     CityService cityService;
-
-    @Test
-    void 도시정보가져오기() throws Exception {
-        List<CityInfo> cityList = cityService.findCityInfoByCategory(INTRO);
-        System.out.println(cityList.get(0).getCity().getCityName());
-    }
-
 }
