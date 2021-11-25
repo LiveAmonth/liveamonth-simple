@@ -1,10 +1,8 @@
 package teamproject.lam_simple.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.jpa.repository.EntityGraph;
+import org.springframework.util.Assert;
 import teamproject.lam_simple.constants.CategoryConstants;
 import teamproject.lam_simple.constants.CategoryConstants.CityNames;
 import teamproject.lam_simple.constants.CategoryConstants.CityTransportGrade;
@@ -35,7 +33,8 @@ import static teamproject.lam_simple.constants.CategoryConstants.CityTransportGr
 })
 @Entity
 @Table(name = "cities")
-@Getter @Setter
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class City {
 
     @Id @GeneratedValue
@@ -54,6 +53,12 @@ public class City {
     @OneToMany(mappedBy = "city")
     private List<CityTransport> cityTransports = new ArrayList<>();
 
+
+    @Builder
+    public City(CityNames name) {
+        Assert.notNull(name, "name must not be null");
+        this.name = name;
+    }
 
     //==비즈니스 로직==//
     public CityTransportGrade getTransportScore(){

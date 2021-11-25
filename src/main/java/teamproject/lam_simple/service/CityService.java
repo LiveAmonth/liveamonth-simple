@@ -5,14 +5,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import teamproject.lam_simple.domain.City;
 import teamproject.lam_simple.domain.CityInfo;
-import teamproject.lam_simple.domain.CityTransport;
-import teamproject.lam_simple.domain.CityWeather;
 import teamproject.lam_simple.repository.CityRepository;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-import static teamproject.lam_simple.constants.CategoryConstants.*;
-import static teamproject.lam_simple.constants.CategoryConstants.CityTransportGrade.*;
+import static teamproject.lam_simple.constants.CategoryConstants.CityInfoCategory;
+import static teamproject.lam_simple.constants.CategoryConstants.CityNames;
 
 @Service
 @Transactional(readOnly = true)

@@ -1,7 +1,7 @@
 package teamproject.lam_simple.domain;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.springframework.util.Assert;
 import teamproject.lam_simple.constants.CategoryConstants.CityInfoCategory;
 
 import javax.persistence.*;
@@ -17,7 +17,7 @@ import static javax.persistence.FetchType.LAZY;
 @Entity
 @Table(name = "city_infos")
 @Getter
-@Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class CityInfo {
 
     @Id
@@ -37,4 +37,15 @@ public class CityInfo {
     @JoinColumn(name = "city_id")
     private City city;
 
+    @Builder
+    public CityInfo(CityInfoCategory cityInfoCategory,String content,String image,City city) {
+        Assert.notNull(cityInfoCategory, "cityCategory must not be null");
+        Assert.notNull(content, "content must not be empty");
+        Assert.notNull(image, "image must not be empty");
+        Assert.notNull(city, "city must not be null");
+        this.cityInfoCategory = cityInfoCategory;
+        this.content = content;
+        this.image = image;
+        this.city = city;
+    }
 }
