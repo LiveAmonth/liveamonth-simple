@@ -39,9 +39,9 @@
                         <li><a href="city?menu=SE" th:text="#{city}">도시 소개</a></li>
                         <li><a href="otherScheduleList?action=list" th:text="#{schedule.menu.otherSchedule}">다른 사람 스케줄</a></li>
                         <li><a href="review" th:text="#{review}">후기 게시판</a></li>
-                        <li th:unless="${user}"><a href="signIn" th:text="#{login.signIn}">로그인</a></li>
-                        <li th:unless="${user}"><a href="signUp" th:text="#{login.signUp}">회원가입</a></li>
-                        <li th:if="${user}"><a href="logout" th:text="#{login.logout}">로그아웃</a></li>
+                        <li th:unless="${user}"><a href="/user/login" th:text="#{login.signIn}">로그인</a></li>
+                        <li th:unless="${user}"><a href="/user/signUp" th:text="#{login.signUp}">회원가입</a></li>
+                        <li th:if="${user}"><a href="/user/logout" th:text="#{login.logout}">로그아웃</a></li>
                         <li th:if="${user}"><a href="myPage" th:text="#{myPage}">마이페이지</a></li>
                     </ul>
                 </div>

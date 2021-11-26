@@ -6,13 +6,13 @@
 >
 
 <div layout:fragment="content">
-    <section class="hero-section" th:replace="mainView/cityInfoSlide :: cityInfoSlide"></section>
+    <section class="hero-section" th:replace="main/cityInfoSlide :: cityInfoSlide"></section>
     <section class="blog-section spad">
         <div class="container">
             <div class="row">
-                <div th:replace="mainView/mainPopularContents :: mainPopularContents"></div>
-                <div th:replace="mainView/mainSideBar :: mainSideBar"></div>
-                <div th:replace="mainView/cityInfo :: cityInfo"></div>
+                <div th:replace="main/mainPopularContents :: mainPopularContents"></div>
+                <div th:replace="main/mainSideBar :: mainSideBar"></div>
+                <div th:replace="main/cityInfo :: cityInfo"></div>
             </div>
         </div>
     </section>

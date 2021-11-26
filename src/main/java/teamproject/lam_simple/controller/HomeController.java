@@ -30,7 +30,7 @@ public class HomeController {
         model.addAttribute("month", Month.values()[Calendar.getInstance().get(Calendar.MONTH)]);
         // 인기 스케줄, 게시판 정보
 
-        return "mainView/home";
+        return "main/home";
     }
 
 }

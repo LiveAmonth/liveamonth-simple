@@ -9,5 +9,5 @@
     <script type="text/javascript" th:src="@{/js/TweenMax.min.js}"></script>
 </head>
 <div layout:fragment="sideMenuBar" th:replace="fragments/sideMenuBar :: sideMenuBar('customerCenter')"></div>
-<div layout:fragment="content" th:replace="customerCenterView/customerCenterContents :: ${menu}"></div>
+<div layout:fragment="content" th:replace="customerCenter/customerCenterContents :: ${menu}"></div>
 </html>

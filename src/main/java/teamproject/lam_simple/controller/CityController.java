@@ -21,7 +21,7 @@ public class CityController {
         model.addAttribute("menu", menu);
         model.addAttribute("cities", CityNames.values());
         model.addAttribute("cityInfos", cityService.findCityInfoByName(menu));
-        return "/cityView/city";
+        return "/city/city";
     }
 
 
