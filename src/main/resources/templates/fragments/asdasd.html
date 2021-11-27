@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <header th:fragment="headerFragment" class="header-section">
     <div class="hs-top">
         <div class="container">
@@ -10,7 +11,7 @@
                     </div>
                 </div>
                 <div class="col-lg-10">
-                    <div class="ht-widget pt-4">
+                    <div class="ht-widget">
                         <a href="/user/logout" th:text="#{login.logout}" th:if="${user}" class="hw-btn">로그아웃</a>
                         <a href="/user/login" th:text="#{login.signIn}" th:unless="${user}" class="hw-btn">로그인</a>
                         <a href="/user/signUp" th:text="#{login.signUp}" th:unless="${user}" class="hw-btn">회원가입</a>

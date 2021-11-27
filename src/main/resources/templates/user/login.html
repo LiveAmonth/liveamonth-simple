@@ -6,7 +6,7 @@
         layout:decorate="~{layout/basicLayout}"
 >
 <head>
-    <link rel="stylesheet" th:href="@{/css/signUpStyle.css}" type="text/css">
+<!--    <link rel="stylesheet" th:href="@{/css/signUpStyle.css}" type="text/css">-->
     <script type="text/javascript" th:src="@{/js/signUp.js}"></script>
     <style>
         .login{
@@ -23,6 +23,182 @@
             background: none;
             height: 800px;
             padding: 7em 0;
+        }
+        .login-wrap .icon span {
+            color: #fff;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group label {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: #135762;
+        }
+
+        .field-icon {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            color: rgba(0, 0, 0, 0.3);
+            margin-top: 15px;
+            padding-top: 1rem;
+        }
+
+        .form-control {
+            height: 52px;
+            background: #fff;
+            color: #000;
+            font-size: 16px;
+            border-radius: 5px;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .form-control::-webkit-input-placeholder {
+            /* Chrome/Opera/Safari */
+            color: rgba(0, 0, 0, 0.3) !important;
+        }
+
+        .form-control::-moz-placeholder {
+            /* Firefox 19+ */
+            color: rgba(0, 0, 0, 0.3) !important;
+        }
+
+        .form-control:-ms-input-placeholder {
+            /* IE 10+ */
+            color: rgba(0, 0, 0, 0.3) !important;
+        }
+
+        .form-control:-moz-placeholder {
+            /* Firefox 18- */
+            color: rgba(0, 0, 0, 0.3) !important;
+        }
+
+        .form-control:focus, .form-control:active {
+            outline: none !important;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            border: 1px solid #135762;
+        }
+
+        textarea.form-control {
+            height: inherit !important;
+        }
+
+        .checkbox-wrap {
+            display: block;
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 14px !important;
+            font-weight: 400 !important;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            text-transform: capitalize !important;
+            letter-spacing: 0 !important;
+            color: rgba(0, 0, 0, 0.4) !important;
+        }
+
+        /* Hide the browser's default checkbox */
+        .checkbox-wrap input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        /* Create a custom checkbox */
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* Create the checkmark/indicator (hidden when not checked) */
+        .checkmark:after {
+            content: "\f0c8";
+            font-family: "FontAwesome";
+            position: absolute;
+            color: rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+            margin-top: -4px;
+            -webkit-transition: 0.3s;
+            -o-transition: 0.3s;
+            transition: 0.3s;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .checkmark:after {
+                -webkit-transition: none;
+                -o-transition: none;
+                transition: none;
+            }
+        }
+
+        /* Show the checkmark when checked */
+        .checkbox-wrap input:checked ~ .checkmark:after {
+            display: block;
+            content: "\f14a";
+            font-family: "FontAwesome";
+            color: rgba(0, 0, 0, 0.2);
+        }
+
+        /* Style the checkmark/indicator */
+        .checkbox-primary {
+            color: #135762;
+        }
+
+        .checkbox-primary input:checked ~ .checkmark:after {
+            color: #135762;
+        }
+
+        .btn {
+            cursor: pointer;
+            border-radius: 40px;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            font-size: 15px;
+        }
+
+        .btn:hover, .btn:active, .btn:focus {
+            outline: none;
+        }
+
+        .btn.btn-primary {
+            background: #135762 !important;
+            border: none !important;
+            color: #fff !important;
+            text-transform: uppercase;!important;
+            box-shadow: -6px -6px 5px rgba(228,226,226,0.8), 3px 3px 10px;!important;
+        }
+
+        .btn.btn-primary:hover {
+            background: #fff1f1 !important;
+            color: #135762 !important;
+            box-shadow: inset -3px -3px 5px rgba(225,225,225,0.5),
+            inset 8px 0px 16px rgba(0,0,0,0.1);!important;
+        }
+
+        .underline-text{
+            text-decoration: none;
+            color: #135762;
+        }
+        .underline-text:hover{
+            text-decoration: underline;
+            color: #135762;
         }
     </style>
 </head>
@@ -59,15 +235,15 @@
                                 </label>
                             </div>
                             <div class="w-50 text-md-right">
-                                <a href="/user/findID" th:text="#{login.findId}">아이디 찾기</a>
+                                <a href="/user/findID" th:text="#{login.findId}" class="underline-text">아이디 찾기</a>
                             </div>
 
                             <div class="w-50 text-md-right">
-                                <a href="/user/findPW" th:text="#{login.findPw}">비밀번호 찾기</a>
+                                <a href="/user/findPW" th:text="#{login.findPw}" class="underline-text">비밀번호 찾기</a>
                             </div>
                         </div>
                     </form>
-                    <p class="text-center">[[#{login.membernotyet}]] <a href="/user/signUp" th:text="#{login.signUp}">회원가입</a></p>
+                    <p class="text-center">[[#{login.membernotyet}]] <a href="/user/signUp" th:text="#{login.signUp}" class="underline-text">회원가입</a></p>
                 </div>
             </div>
         </div>
