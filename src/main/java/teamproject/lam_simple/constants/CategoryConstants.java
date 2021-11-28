@@ -19,4 +19,6 @@ public class CategoryConstants {
         }
     }
     public enum CustomerCenterCategory{faq,personalTerms,termsAndConditions,notice}
+    public enum GenderTypes {MALE,FEMALE}
+    public enum EmailDomains{NONE,NAVER,NATE,GMAIL,DAUM,SELF}
 }

@@ -14,4 +14,7 @@ public class UserRepository {
     private EntityManager em;
 
 
+    public void save(User user) {
+        em.persist(user);
+    }
 }

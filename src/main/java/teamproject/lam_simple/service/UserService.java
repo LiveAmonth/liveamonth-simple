@@ -7,10 +7,14 @@ import teamproject.lam_simple.dto.UserForm;
 import teamproject.lam_simple.repository.UserRepository;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
 
+    public void save(User user) {
+        userRepository.save(user);
+    }
 }

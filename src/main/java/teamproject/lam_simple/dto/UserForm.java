@@ -1,39 +1,46 @@
 package teamproject.lam_simple.dto;
 
 import lombok.Getter;
-import lombok.Setter;
+import teamproject.lam_simple.constants.CategoryConstants;
+import teamproject.lam_simple.constants.CategoryConstants.EmailDomains;
+import teamproject.lam_simple.constants.CategoryConstants.GenderTypes;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.sql.Date;
 
 @Getter
-@Setter
 public class UserForm {
 
+
     @NotEmpty(message = "이메일은 필수 입니다.")
-    @Size(max = 100, message = "이메일은 100자리를 초과할 수 없습니다.")
-    private String userEmail;
+    @Size(max = 100, message = "이메일은 50자리를 초과할 수 없습니다.")
+    private String email_id;
+
+    @NotEmpty(message = "이메일은 필수 입니다.")
+    private String email_domain;
 
     @NotEmpty(message = "이름은 필수 입니다.")
     @Size(max = 20, message = "이름은 20자리를 초과할 수 없습니다.")
-    private String userName;
+    private String name;
 
     @NotEmpty(message = "닉네임은 필수 입니다.")
     @Size(max = 50, message = "닉네임은 50자리를 초과할 수 없습니다.")
-    private String userNickname;
+    private String nickname;
 
     @NotEmpty(message = "아이디는 필수 입니다.")
     @Size(max = 50, message = "아이디는 50자리를 초과할 수 없습니다.")
-    private String userID;
+    private String login_id;
 
     @NotEmpty(message = "비밀번호는 필수 입니다.")
     @Size(max = 100, message = "비밀번호는 100자리를 초과할 수 없습니다.")
-    private String userPassword;
+    private String password;
 
-    @NotEmpty(message = "나이는 필수 입니다.")
-    @Size(min = 0, message = "나이는 1세 이상 이어야 합니다.")
-    private int userAge;
+    @NotNull(message = "생년월일은 필수 입니다.")
+    private Date birth;
 
     @NotEmpty(message = "성별은 필수 입니다.")
-    private boolean userSex;
+    private GenderTypes genderTypes;
 }

@@ -1,21 +1,11 @@
 $(document).ready(function(){
-    $('#showPassword').on('click',function(){
+    $('#password-check-field').on('click',function(){
         $('input').toggleClass('active');
         if($('input').hasClass('active')){
-            $(this).attr('class',"fa fa-fw fa-eye-slash field-icon mt-3")
+            $(this).attr('class',"fa fa-fw fa-eye-slash field-icon")
                 .prev('input').attr('type',"text");
         }else{
-            $(this).attr('class',"fa fa-fw fa-eye field-icon mt-3")
-                .prev('input').attr('type','password');
-        }
-    });
-    $('#showCheckPassword').on('click',function(){
-        $('input').toggleClass('active');
-        if($('input').hasClass('active')){
-            $(this).attr('class',"fa fa-fw fa-eye-slash field-icon mt-1")
-                .prev('input').attr('type',"text");
-        }else{
-            $(this).attr('class',"fa fa-fw fa-eye field-icon mt-1")
+            $(this).attr('class',"fa fa-fw fa-eye field-icon")
                 .prev('input').attr('type','password');
         }
     });
@@ -23,10 +13,10 @@ $(document).ready(function(){
         $('input').toggleClass('active');
         if($('input').hasClass('active')){
             $(this).attr('class',"fa fa-fw fa-eye-slash field-icon")
-                .prev('label').prev('input').attr('type',"text");
+                .prev('input').attr('type',"text");
         }else{
             $(this).attr('class',"fa fa-fw fa-eye field-icon")
-                .prev('label').prev('input').attr('type','password');
+                .prev('input').attr('type','password');
         }
-    });
+    })
 });
