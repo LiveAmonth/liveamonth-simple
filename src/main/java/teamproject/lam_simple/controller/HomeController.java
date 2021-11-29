@@ -4,32 +4,47 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import teamproject.lam_simple.constants.CategoryConstants;
+import teamproject.lam_simple.constants.SessionConstants;
 import teamproject.lam_simple.domain.CityInfo;
+import teamproject.lam_simple.domain.User;
 import teamproject.lam_simple.service.CityService;
+import teamproject.lam_simple.service.UserService;
 
 import java.util.Calendar;
 import java.util.List;
 
 import static teamproject.lam_simple.constants.CategoryConstants.*;
 import static teamproject.lam_simple.constants.CategoryConstants.CityInfoCategory.INTRO;
+import static teamproject.lam_simple.constants.SessionConstants.LOGIN_MEMBER;
 
 @Controller
 @RequiredArgsConstructor
 @Slf4j
 public class HomeController {
     private final CityService cityService;
+    private final UserService userService;
+
+    @ModelAttribute("cityInfos")
+    public List<CityInfo> cityInfos() {
+        return cityService.findCityInfoByCategory(INTRO);
+    }
+
+    @ModelAttribute("month")
+    public Month month() {
+        return Month.values()[Calendar.getInstance().get(Calendar.MONTH)];
+    }
 
     @GetMapping("/")
-    public String home(Model model) {
-        // 도시 슬라이드 정보
-        model.addAttribute("cityInfos", cityService.findCityInfoByCategory(INTRO));
-        // 회원 정보
-        // 도시 그리드 정보
-        model.addAttribute("month", Month.values()[Calendar.getInstance().get(Calendar.MONTH)]);
-        // 인기 스케줄, 게시판 정보
-
+    public String homeLogin(
+            @SessionAttribute(name = LOGIN_MEMBER, required = false) User loginUser, Model model) {
+        if (loginUser != null) {
+            model.addAttribute("loginUser", loginUser);
+        }
         return "main/home";
     }
 

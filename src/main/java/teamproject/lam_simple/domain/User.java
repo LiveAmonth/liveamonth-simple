@@ -9,9 +9,12 @@ import teamproject.lam_simple.constants.CategoryConstants.GenderTypes;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.sql.Date;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 @Entity
 @Table(name = "user")
@@ -19,18 +22,20 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class User{
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private long id;
 
-    private String login_id;
+    private String loginId;
     private String password;
     private String name;
     private String nickname;
-    @Email
     private String email;
+
     @Enumerated(EnumType.STRING)
+    @Column(name = "gender")
     private GenderTypes genderTypes;
+
     private Date birth;
 
     private String image;
@@ -42,15 +47,15 @@ public class User{
     private List<Schedule> schedules = new ArrayList<>();
 
     @Builder
-    public User(String login_id, String password, String name, String nickname, String email, GenderTypes genderTypes, Date birth) {
-        Assert.notNull(login_id, "login_id must not be empty");
+    public User(String loginId, String password, String name, String nickname, String email, GenderTypes genderTypes, Date birth) {
+        Assert.notNull(loginId, "login_id must not be empty");
         Assert.notNull(password, "password must not be empty");
         Assert.notNull(name, "name must not be empty");
         Assert.notNull(nickname, "nickname must not be empty");
         Assert.notNull(email, "email must not be empty");
         Assert.notNull(genderTypes, "gender must not be null");
         Assert.notNull(birth, "birth must not be empty");
-        this.login_id = login_id;
+        this.loginId = loginId;
         this.password = password;
         this.name = name;
         this.nickname = nickname;
@@ -59,4 +64,12 @@ public class User{
         this.birth = birth;
     }
 
+
+    // => 비즈니스 로직
+    public int calcAge(){
+        Calendar current = Calendar.getInstance();
+        int currentYear  = current.get(Calendar.YEAR);
+        int age = currentYear - this.birth.toLocalDate().getYear() + 1;
+        return age;
+    }
 }

@@ -5,6 +5,7 @@ import teamproject.lam_simple.domain.User;
 
 import java.util.Optional;
 
-public interface UserRepository extends JpaRepository<User,Long>{
-    Optional<User> findById(Long Id);
+public interface LoginRepository extends JpaRepository<User,Long> {
+    Optional<User> findUserByLoginId(String loginId);
+
 }
