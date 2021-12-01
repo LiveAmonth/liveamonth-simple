@@ -1,0 +1,38 @@
+server:
+  port: 5000
+  servlet:
+    session:
+      tracking-modes : cookie
+      timeout: 1800
+
+spring:
+  messages:
+    basename: messages,errors
+
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://aa7q3w5kzdjrgd.cneepbeh7fml.ap-northeast-2.rds.amazonaws.com:3306/liveamonthdb?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false
+    username: liveamonthDB
+    password: liveamonth
+
+  jpa:
+    database: mysql
+    hibernate:
+      ddl-auto: none
+      properties:
+        hibernate:
+          format_sql: true
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+cloud:
+  aws:
+    credentials:
+      accessKey: AKIAYPRCH2IMEEXYKRMM
+      secretKey: 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
+    s3:
+      bucket: liveamonth-simple-bucket
+    region:
+      static: ap-northeast-2
+    stack:
+      auto: false

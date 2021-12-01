@@ -1204,8 +1204,8 @@ ol {
   Feature Property
 -----------------------*/
 .feature-property-left {
-    background: #103230;
-    padding: 50px 50px 40px 50px;
+    /*background: #103230;*/
+    padding: 0px 50px 40px 50px;
     height: 520px;
 }
 
@@ -1214,7 +1214,8 @@ ol {
 }
 
 .feature-property-left .section-title h4 {
-    color: #ffffff;
+    color: black;
+    padding-top: 5px;
 }
 
 .feature-property-left ul {
@@ -1222,12 +1223,12 @@ ol {
 }
 
 .feature-property-left ul li {
-    font-size: 14px;
+    font-size: 15px;
     list-style: none;
     color: #c4c4c4;
-    padding-bottom: 12px;
-    border-bottom: 1px solid #284745;
-    margin-bottom: 15px;
+    /*padding-bottom: 12px;*/
+    /*border-bottom: 1px solid #284745;*/
+    /*margin-bottom: 15px;*/
     cursor: pointer;
 }
 
@@ -1244,14 +1245,19 @@ ol {
 
 .feature-property-left a {
     display: block;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 700;
     color: #135762;
-    background: #ffffff;
+    /*background: #ffffff;*/
     padding: 15px 0;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    text-align: center;
+    /*text-align: center;*/
+}
+.feature-property-left a:hover {
+    color: white;
+    background: #135762;
+    border-radius: 10px;
 }
 
 .fp-slider.owl-carousel .owl-nav button {
@@ -4098,7 +4104,7 @@ li .richText-btn[data-command=toggleCode] {
     }
 
     .feature-property-left {
-        padding: 40px 30px 30px 30px;
+        padding: 0px 30px 30px 30px;
     }
 
     .cs-item-list .cs-item .cs-text {

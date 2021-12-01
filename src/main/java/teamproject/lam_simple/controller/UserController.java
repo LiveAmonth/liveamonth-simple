@@ -47,5 +47,4 @@ public class UserController {
         userService.save(userForm);
         return "redirect:/";
     }
-    
 }

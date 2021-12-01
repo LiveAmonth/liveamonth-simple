@@ -4,12 +4,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.SessionAttribute;
-import teamproject.lam_simple.constants.CategoryConstants;
-import teamproject.lam_simple.constants.SessionConstants;
 import teamproject.lam_simple.domain.CityInfo;
 import teamproject.lam_simple.domain.User;
 import teamproject.lam_simple.service.CityService;
@@ -20,7 +17,7 @@ import java.util.List;
 
 import static teamproject.lam_simple.constants.CategoryConstants.*;
 import static teamproject.lam_simple.constants.CategoryConstants.CityInfoCategory.INTRO;
-import static teamproject.lam_simple.constants.SessionConstants.LOGIN_MEMBER;
+import static teamproject.lam_simple.constants.SessionConstants.LOGIN_USER;
 
 @Controller
 @RequiredArgsConstructor
@@ -41,7 +38,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String homeLogin(
-            @SessionAttribute(name = LOGIN_MEMBER, required = false) User loginUser, Model model) {
+            @SessionAttribute(name = LOGIN_USER, required = false) User loginUser, Model model) {
         if (loginUser != null) {
             model.addAttribute("loginUser", loginUser);
         }

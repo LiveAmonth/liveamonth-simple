@@ -26,6 +26,7 @@ public class User{
     @Column(name = "user_id")
     private long id;
 
+    @Column(name = "loginId")
     private String loginId;
     private String password;
     private String name;
@@ -48,7 +49,7 @@ public class User{
 
     @Builder
     public User(String loginId, String password, String name, String nickname, String email, GenderTypes genderTypes, Date birth) {
-        Assert.notNull(loginId, "login_id must not be empty");
+        Assert.notNull(loginId, "loginId must not be empty");
         Assert.notNull(password, "password must not be empty");
         Assert.notNull(name, "name must not be empty");
         Assert.notNull(nickname, "nickname must not be empty");

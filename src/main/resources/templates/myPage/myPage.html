@@ -5,9 +5,9 @@
         layout:decorate="~{layout/contentsLayout}"
 >
 <head>
-    <link rel="stylesheet" th:href="@{/css/faqStyle.css}" type="text/css">
-    <script type="text/javascript" th:src="@{/js/TweenMax.min.js}"></script>
 </head>
 <div layout:fragment="sideMenuBar" th:replace="fragments/sideMenuBar :: sideMenuBar"></div>
-<div layout:fragment="content" th:replace="customerCenter/customerCenterContents :: ${menu}"></div>
+<div layout:fragment="content">
+<!--    <div layout:fragment="content" th:replace="myPage/myPageContents :: ${menu}"></div>-->
+</div>
 </html>

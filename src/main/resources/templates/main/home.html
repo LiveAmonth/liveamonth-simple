@@ -4,18 +4,7 @@
         xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
         layout:decorate="~{layout/basicLayout}"
 >
-
-<div layout:fragment="content">
-    <section class="hero-section" th:replace="main/cityInfoSlide :: cityInfoSlide"></section>
-    <section class="blog-section spad">
-        <div class="container">
-            <div class="row">
-                <div th:replace="main/mainPopularContents :: mainPopularContents"></div>
-                <div th:replace="main/mainSideBar :: mainSideBar"></div>
-                <div th:replace="main/cityInfo :: cityInfo"></div>
-            </div>
-        </div>
-    </section>
+<head>
     <script>
         $(document).ready(function () {
             var owl = $('.owl-carousel');
@@ -51,5 +40,17 @@
             });
         });
     </script>
+</head>
+<div layout:fragment="content">
+    <section class="hero-section" th:replace="main/cityInfoSlide :: cityInfoSlide"></section>
+    <section class="blog-section spad">
+        <div class="container">
+            <div class="row">
+                <div th:replace="main/mainPopularContents :: mainPopularContents"></div>
+                <div th:replace="main/mainSideBar :: mainSideBar"></div>
+                <div th:replace="main/cityInfo :: cityInfo"></div>
+            </div>
+        </div>
+    </section>
 </div>
 </html>

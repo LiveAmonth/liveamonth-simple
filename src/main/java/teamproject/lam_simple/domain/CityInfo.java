@@ -31,6 +31,7 @@ public class CityInfo {
 
     @Lob
     private String content;
+
     private String image;
 
     @ManyToOne(fetch = LAZY)
