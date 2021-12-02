@@ -14,40 +14,49 @@ import teamproject.lam_simple.constants.CategoryConstants;
 import teamproject.lam_simple.constants.SessionConstants;
 import teamproject.lam_simple.domain.User;
 import teamproject.lam_simple.dto.FindIdForm;
+import teamproject.lam_simple.dto.FindPwForm;
 import teamproject.lam_simple.dto.LoginForm;
 import teamproject.lam_simple.service.LoginService;
+import teamproject.lam_simple.service.MailService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.Map;
 
 @Controller
 @RequiredArgsConstructor
 @Slf4j
 public class LoginController {
     private final LoginService loginService;
+    private final MailService mailService;
 
     @ModelAttribute("emailDomains")
     public CategoryConstants.EmailDomains[] emailDomains(){return CategoryConstants.EmailDomains.values();}
 
+    /**
+     * 로그인
+     * @Param LoginForm
+     * @Return loginForm
+     */
     @GetMapping("/login")
     public String login(@ModelAttribute("form") LoginForm form) {
-        return "login/loginForm";
+        return "login/form/loginForm";
     }
 
     @PostMapping("/login")
-    public String login(@Valid @ModelAttribute LoginForm form, BindingResult bindingResult,
+    public String login(@Valid @ModelAttribute("form") LoginForm form, BindingResult bindingResult,
                         @RequestParam(defaultValue = "/")String redirectURL,
                         HttpServletRequest request) {
-        if (bindingResult.hasErrors()) return "login/loginForm";
+
+        if (bindingResult.hasErrors()) return "login/form/loginForm";
 
         User loginUser = loginService.login(form.getLoginId(), form.getPassword());
 
         if (loginUser == null) {
             bindingResult.reject("loginFail", "아이디 또는 비밀번호가 맞지 않습니다.");
-            return "login/loginForm";
+            return "login/form/loginForm";
         }
-
 
         // 로그인 성공 처리
         // 세션이 있으면 있는 세션 반환, 없으면 신규 세션을 생성
@@ -57,34 +66,65 @@ public class LoginController {
         return "redirect:" + redirectURL;
     }
 
+    /**
+     * 아이디 찾기
+     * @Param FindIdForm
+     * @Return findIdForm, findIdResult
+     */
     @GetMapping("/findId")
     public String findId(@ModelAttribute("form") FindIdForm form) {
-        return "login/findIdForm";
+        return "login/form/findIdForm";
     }
 
     @PostMapping("/findId")
-    public String findId(@Valid @ModelAttribute FindIdForm form, BindingResult bindingResult,
-                         RedirectAttributes redirectAttributes,
-                        Model model) {
-        if (bindingResult.hasErrors()) return "login/findIdForm";
+    public String findId(@Valid @ModelAttribute("form") FindIdForm form, BindingResult bindingResult,
+                         RedirectAttributes redirectAttributes) {
+        if (bindingResult.hasErrors()) return "login/form/findIdForm";
 
-        User foudUser = loginService.findId(form.getName(), form.unifyEmail());
-        String foundLoginId = foudUser.getLoginId();
+        User foundUser = loginService.findId(form.getName(), form.unifyEmail());
 
-        log.info("검색된 계정 ={}",foudUser);
-        log.info("검색된 아이디 ={}",foudUser.getLoginId());
-        if (foudUser == null) {
+        if (foundUser == null) {
             bindingResult.reject("NoData", "해당 정보와 일치하는 회원이 없습니다.");
-            return "login/findIdForm";
+            return "login/form/findIdForm";
         }
+
+        String foundLoginId = foundUser.getLoginId();
+
 
         redirectAttributes.addAttribute("foundLoginId", foundLoginId);
         return "redirect:/findIdResult";
     }
     @GetMapping("/findIdResult")
     public String findIdResult(@ModelAttribute("foundLoginId") String foundLoginId){
-        return "login/findIdResult";
+        return "login/result/findIdResult";
     }
+
+    /**
+     * 비밀번호 찾기
+     * @Mapping findPw
+     * @Param FindPwForm
+     * @Return findPwForm, findPwResult
+     */
+    @GetMapping("/findPw")
+    public String findPw(@ModelAttribute("form") FindPwForm form) {return "login/form/findPwForm";}
+
+    @PostMapping("/findPw")
+    public String findPw(@Valid @ModelAttribute("form") FindPwForm form, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) return "login/form/findPwForm";
+
+        Map<String, Object> result = loginService.findPw(form.getLoginId(), form.unifyEmail());
+
+        if (result == null) {
+            bindingResult.reject("NoData", "해당 정보와 일치하는 회원이 없습니다.");
+            return "login/form/findPwForm";
+        }
+
+        mailService.sendPasswordByMail(result);
+
+        return "login/result/findPwResult";
+    }
+
+
     @PostMapping("/logout")
     public String logout(HttpServletRequest request) {
         HttpSession session = request.getSession(false);

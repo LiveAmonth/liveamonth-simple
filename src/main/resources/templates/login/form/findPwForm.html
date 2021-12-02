@@ -14,7 +14,7 @@
 
         .login-container {
             background: white;
-            width: 450px;
+            width: 500px;
             padding-top: 40%;
             box-shadow: rgba(19, 87, 98, 0.4) 5px 5px, rgba(19, 87, 98, 0.3) 10px 10px, rgba(19, 87, 98, 0.2) 15px 15px, rgba(19, 87, 98, 0.1) 20px 20px, rgba(19, 87, 98, 0.05) 25px 25px;
             border-radius: 10px;
@@ -206,6 +206,9 @@
             text-decoration: underline;
             color: #135762;
         }
+        .msg{
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -219,51 +222,49 @@
             </div>
             <div class="row justify-content-center  p-0">
                 <div class="col-md-10">
-                    <form action="/" th:action th:object="${form}" method="post">
+                    <form action="/result/findPwResult.html" th:action th:object="${form}" method="post">
                         <div th:if="${#fields.hasGlobalErrors()}">
-                            <p class="field-error" th:each="err : ${#fields.globalErrors()}"
+                            <p class="field-error msg" th:each="err : ${#fields.globalErrors()}"
                                th:text="${err}">전체 오류 메시지</p>
                         </div>
                         <div class="form-group mt-3">
                             <label class="form-control-placeholder" for="userID" th:text="#{login.loginId}">아이디</label>
                             <input type="text" class="form-control" id="userID" th:field="*{loginId}"
                                    th:errorclass="field-error">
-                            <div class="field-error" th:errors="*{loginId}"/>
+                            <div class="field-error msg" th:errors="*{loginId}"/>
                         </div>
                         <div class="form-group">
-                            <label class="form-control-placeholder" for="password"
-                                   th:text="#{login.password}">비밀번호</label>
-                            <input type="password" id="password" class="form-control" th:field="*{password}"
-                                   th:errorclass="field-error">
-                            <span id="password-field" class="fa fa-fw fa-eye field-icon"></span>
-                            <div class="field-error" th:errors="*{password}"/>
+                            <div>
+                                <th scope="row"><label th:text="#{login.email}">이메일</label></th>
+                            </div>
+                            <tr>
+                                <td>
+                                    <input type="text" id="email_id" name="email_id" th:field="*{email_id}"
+                                           maxlength="18" class="form-control" style="width: 43%;float: left">
+                                    <h5 style="float: left;margin-left: 10px;margin-right: 10px" class="pt-2">@</h5>
+                                    <input type="text" id="email_domain" name="email_domain" th:field="*{email_domain}"
+                                           readOnly="true" class="form-control" style="width: 47%;float: left">
+                                    <select class="custom-select mt-2" name="emailSelected" id="emailSelected" onchange="email_change();">
+                                        <option th:each="domain :${emailDomains}" th:value="${domain}"
+                                                th:text="#{'email.domain.'+${domain}}" class="form-control">도메인
+                                        </option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <div class="field-error msg" th:errors="*{email_domain}"/>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="form-control btn btn-primary rounded submit px-3"
-                                    th:text="#{login.signIn}">로그인
+                                    th:text="#{login.findPw}">비밀번호 찾기
                             </button>
                         </div>
                     </form>
-                    <div class="form-group d-md-flex">
-                        <div class="w-50 text-left">
-                            <label class="checkbox-wrap checkbox-primary mb-0">[[#{login.remember}]]
-                                <input type="checkbox" name="userCookie" checked>
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <div class="w-50 text-md-right">
-                            <a href="/findId" th:text="#{login.findId}" class="underline-text">아이디 찾기</a>
-                        </div>
 
-                        <div class="w-50 text-md-right">
-                            <a href="/findPw" th:text="#{login.findPw}" class="underline-text">비밀번호 찾기</a>
-                        </div>
-                    </div>
-
-                    <p class="text-center">[[#{login.membernotyet}]] <a href="/signUp" th:text="#{login.signUp}"
+                    <p class="text-center">[[#{login.membernotyet}]] <a th:href="@{/user/signUp}" th:text="#{login.signUp}"
                                                                         class="underline-text">회원가입</a></p>
                 </div>
             </div>
+
         </div>
 
     </section>

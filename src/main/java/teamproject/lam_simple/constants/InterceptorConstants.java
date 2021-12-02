@@ -4,6 +4,7 @@ public class InterceptorConstants {
     public enum Whitelist {
         ALL("/"),
         USER_ADD("/signUp"),
+        USER_ADD_SIGN("/user/signUp"),
         USER_FIND_ID("/findId"),
         USER_FIND_PW("/findPw"),
         USER_FIND_ID_RESULT("/findIdResult"),

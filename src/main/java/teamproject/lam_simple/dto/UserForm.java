@@ -34,7 +34,7 @@ public class UserForm {
     @Size(max = 100, message = "이메일은 50자리를 초과할 수 없습니다.")
     private String email_id;
 
-    @Pattern(regexp = "[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}",message = "올바르지 않은 도메인 이름입니다.")
+    @Pattern(regexp = "[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}",message = "올바르지 않은 도메인 이름입니다.")
     @NotEmpty(message = "이메일은 필수 입니다.")
     private String email_domain;
 

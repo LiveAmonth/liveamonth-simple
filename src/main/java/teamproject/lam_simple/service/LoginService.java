@@ -6,6 +6,9 @@ import org.springframework.stereotype.Service;
 import teamproject.lam_simple.domain.User;
 import teamproject.lam_simple.repository.LoginRepository;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Service
 @RequiredArgsConstructor
 public class LoginService {
@@ -28,5 +31,25 @@ public class LoginService {
     public User findId(String name, String email) {
         return loginRepository.findUserByNameAndEmail(name, email)
                 .orElse(null);
+    }
+
+    public Map<String, Object> findPw(String loginId, String email) {
+        return this.editPassword(loginRepository.findUserByLoginIdAndEmail(loginId, email).orElse(null));
+    }
+
+    private Map<String, Object> editPassword(User user) {
+        if(user==null) return null;
+        else{
+            Map<String, Object> result = new HashMap<>();
+            String temporaryPw = "";
+            for (int i = 0; i < 8; i++) {
+                temporaryPw += (char) ((Math.random() * 26) + 97);
+            }
+            loginRepository.editPassword(user, passwordEncoder.encode(temporaryPw));
+            result.put("email", user.getEmail());
+            result.put("name", user.getName());
+            result.put("temporaryPw", temporaryPw);
+            return result;
+        }
     }
 }

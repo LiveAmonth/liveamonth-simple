@@ -20,8 +20,4 @@ public class UserService {
         userRepository.save(userForm.toEntity(passwordEncoder));
     }
 
-
-    public User findById(Long userId) {
-        return userRepository.findById(userId).get();
-    }
 }
