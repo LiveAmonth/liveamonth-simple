@@ -7,21 +7,6 @@
 <head>
     <!--    <link rel="stylesheet" th:href="@{/css/signUpStyle.css}" type="text/css">-->
     <script type="text/javascript" th:src="@{/js/signUp.js}"></script>
-    <script>
-
-        function email_change() {
-            var emailSelected = $("#emailSelected option:selected");
-            if (emailSelected.val() == "SELF") {
-                $('#email_domain').attr("readonly", false);
-                $('#email_domain').val('');
-                $('#email_domain').focus();
-            } else {
-                $('#email_domain').attr("readonly", true);
-                $("#email_domain").val(emailSelected.text());
-            }
-        }
-
-    </script>
     <style>
         .login {
             background-image: url("/img/login_background.jpg");
@@ -111,23 +96,6 @@
             height: inherit !important;
         }
 
-        .checkbox-wrap {
-            display: block;
-            position: relative;
-            padding-left: 30px;
-            margin-bottom: 12px;
-            cursor: pointer;
-            font-size: 14px !important;
-            font-weight: 400 !important;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            text-transform: capitalize !important;
-            letter-spacing: 0 !important;
-            color: rgba(0, 0, 0, 0.4) !important;
-        }
-
         /* Hide the browser's default checkbox */
         .checkbox-wrap input {
             position: absolute;
@@ -137,46 +105,6 @@
             width: 0;
         }
 
-        /* Create a custom checkbox */
-        .checkmark {
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        /* Create the checkmark/indicator (hidden when not checked) */
-        .checkmark:after {
-            content: "\f0c8";
-            font-family: "FontAwesome";
-            position: absolute;
-            color: rgba(0, 0, 0, 0.1);
-            font-size: 20px;
-            margin-top: -4px;
-            -webkit-transition: 0.3s;
-            -o-transition: 0.3s;
-            transition: 0.3s;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .checkmark:after {
-                -webkit-transition: none;
-                -o-transition: none;
-                transition: none;
-            }
-        }
-
-        /* Show the checkmark when checked */
-        .checkbox-wrap input:checked ~ .checkmark:after {
-            display: block;
-            content: "\f14a";
-            font-family: "FontAwesome";
-            color: rgba(0, 0, 0, 0.2);
-        }
-
-        /* Style the checkmark/indicator */
-        .checkbox-primary {
-            color: #135762;
-        }
 
         .checkbox-primary input:checked ~ .checkmark:after {
             color: #135762;
@@ -316,7 +244,6 @@
                 </div>
             </div>
         </div>
-
     </section>
 </div>
 </body>

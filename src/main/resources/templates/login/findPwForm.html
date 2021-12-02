@@ -219,7 +219,7 @@
             </div>
             <div class="row justify-content-center  p-0">
                 <div class="col-md-10">
-                    <form action="/" th:action th:object="${form}" method="post">
+                    <form action="/" th:action th:object="${loginForm}" method="post">
                         <div th:if="${#fields.hasGlobalErrors()}">
                             <p class="field-error" th:each="err : ${#fields.globalErrors()}"
                                th:text="${err}">전체 오류 메시지</p>
@@ -252,15 +252,15 @@
                             </label>
                         </div>
                         <div class="w-50 text-md-right">
-                            <a href="/findId" th:text="#{login.findId}" class="underline-text">아이디 찾기</a>
+                            <a href="/user/findID" th:text="#{login.findId}" class="underline-text">아이디 찾기</a>
                         </div>
 
                         <div class="w-50 text-md-right">
-                            <a href="/findPw" th:text="#{login.findPw}" class="underline-text">비밀번호 찾기</a>
+                            <a href="/user/findPW" th:text="#{login.findPw}" class="underline-text">비밀번호 찾기</a>
                         </div>
                     </div>
 
-                    <p class="text-center">[[#{login.membernotyet}]] <a href="/signUp" th:text="#{login.signUp}"
+                    <p class="text-center">[[#{login.membernotyet}]] <a href="/user/signUp" th:text="#{login.signUp}"
                                                                         class="underline-text">회원가입</a></p>
                 </div>
             </div>

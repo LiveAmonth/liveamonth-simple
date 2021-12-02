@@ -19,6 +19,7 @@ public class UserForm {
     @Size(max = 20, message = "이름은 20자리를 초과할 수 없습니다.")
     private String name;
 
+    @Pattern(regexp = "(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!%*#?&])[A-Za-z[0-9]$@$!%*#?&]{8,20}", message = "영문,숫자,특수문자를 포함해 8자 이상 20자 이내의 비밀번호만 가능합니다.")
     @NotEmpty
     private String password;
 
@@ -51,8 +52,8 @@ public class UserForm {
     public User toEntity(PasswordEncoder passwordEncoder) {
         return User.builder()
                 .loginId(this.loginId)
-                .password(this.password)
-//                .password(passwordEncoder.encode(this.password))
+//                .password(this.password)
+                .password(passwordEncoder.encode(this.password))
                 .name(this.name)
                 .nickname(this.nickname)
                 .birth(this.birth)

@@ -20,3 +20,14 @@ $(document).ready(function(){
         }
     })
 });
+function email_change() {
+    var emailSelected = $("#emailSelected option:selected");
+    if (emailSelected.val() == "SELF") {
+        $('#email_domain').attr("readonly", false);
+        $('#email_domain').val('');
+        $('#email_domain').focus();
+    } else {
+        $('#email_domain').attr("readonly", true);
+        $("#email_domain").val(emailSelected.text());
+    }
+}
