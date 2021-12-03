@@ -9,16 +9,13 @@ import javax.validation.constraints.Size;
 @Data
 public class FindPwForm {
 
-    @NotEmpty(message = "아이디는 필수 입니다.")
-    @Size(max = 50, message = "아이디는 50자리를 초과할 수 없습니다.")
+    @NotEmpty
     private String loginId;
 
-    @NotEmpty(message = "이메일은 필수 입니다.")
-    @Size(max = 100, message = "이메일은 50자리를 초과할 수 없습니다.")
+    @NotEmpty
     private String email_id;
 
-    @Pattern(regexp = "[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}",message = "올바르지 않은 도메인 이름입니다.")
-    @NotEmpty(message = "이메일은 필수 입니다.")
+    @NotEmpty
     private String email_domain;
 
     public String unifyEmail(){

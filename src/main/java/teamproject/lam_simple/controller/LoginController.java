@@ -54,7 +54,7 @@ public class LoginController {
         User loginUser = loginService.login(form.getLoginId(), form.getPassword());
 
         if (loginUser == null) {
-            bindingResult.reject("loginFail", "아이디 또는 비밀번호가 맞지 않습니다.");
+            bindingResult.reject("noData");
             return "login/form/loginForm";
         }
 
@@ -84,7 +84,7 @@ public class LoginController {
         User foundUser = loginService.findId(form.getName(), form.unifyEmail());
 
         if (foundUser == null) {
-            bindingResult.reject("NoData", "해당 정보와 일치하는 회원이 없습니다.");
+            bindingResult.reject("noData");
             return "login/form/findIdForm";
         }
 
@@ -115,7 +115,7 @@ public class LoginController {
         Map<String, Object> result = loginService.findPw(form.getLoginId(), form.unifyEmail());
 
         if (result == null) {
-            bindingResult.reject("NoData", "해당 정보와 일치하는 회원이 없습니다.");
+            bindingResult.reject("noData");
             return "login/form/findPwForm";
         }
 
