@@ -17,6 +17,8 @@
             <div th:if="${loginUser}">
                 <div class="as-item">
                     <div class="user-pic">
+                        <img th:if="${loginUser.image}" th:src="@{${profileImgPath}+${loginUser.image}}" alt>
+                        <img th:unless="${loginUser.image}" th:src="@{${profileImgPath}+${defaultProfile}}" alt>
                     </div>
                     <div class="as-text">
                         <div class="at-title">

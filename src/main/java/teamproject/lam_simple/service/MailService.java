@@ -23,8 +23,8 @@ public class MailService{
         try {
             MimeMessageHelper messageHelper = new MimeMessageHelper(message, true, "UTF-8");
             messageHelper.setSubject("[한달살기에서 알려드립니다]고객님의 임시 비밀번호가 발급되었습니다.");
-            String htmlContent = "<img src=\"https://liveamonth-resources.s3.ap-northeast-2.amazonaws.com/img/logo/logo.png\"><br><br>"
-                    +"안녕하세요. "+result.get("email")+" 고객님<br><br>"
+            String htmlContent = "<img src=\"https://liveamonth-simple-bucket.s3.ap-northeast-2.amazonaws.com/logo.png\"><br><br>"
+                    +"안녕하세요. "+result.get("name")+" 고객님<br><br>"
                     + "<h4>요청하신 임시 비밀번호는 다음과 같습니다.<br>"
                     + "임시비밀번호 : " + result.get("temporaryPw")+"<br>"
                     + "<a href=\"" + "Tpliveamonth-env-1.eba-asge2kce.ap-northeast-2.elasticbeanstalk.com/" + "signIn\">로그인 하러가기</a></h4><br>"

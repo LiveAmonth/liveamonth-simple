@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.SessionAttribute;
+import teamproject.lam_simple.constants.SessionConstants;
 import teamproject.lam_simple.domain.CityInfo;
 import teamproject.lam_simple.domain.User;
 import teamproject.lam_simple.service.CityService;
@@ -35,6 +36,14 @@ public class HomeController {
     public Month month() {
         return Month.values()[Calendar.getInstance().get(Calendar.MONTH)];
     }
+
+    @ModelAttribute("profileImgPath")
+    public String profileImgPath() {return SessionConstants.PROFILE_IMAGE_PATH;}
+
+    @ModelAttribute("defaultProfile")
+    public String defaultProfile() {return SessionConstants.DEFAULT_IMAGE_NAME;}
+
+
 
     @GetMapping("/")
     public String homeLogin(
