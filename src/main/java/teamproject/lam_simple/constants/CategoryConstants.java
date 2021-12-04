@@ -19,9 +19,10 @@ public class CategoryConstants {
         }
     }
     public enum CustomerCenterCategory{faq,personalTerms,termsAndConditions,notice}
-    public enum AccountCategory{modify,drop}
-    public enum CommunityCategory{review,schedule}
-    public enum InquiryCategory{writeInquiry,inquiryAnswer}
+    public interface MyPageCategory{}
+    public enum AccountCategory implements MyPageCategory {modify,drop}
+    public enum CommunityCategory implements MyPageCategory{review,schedule}
+    public enum InquiryCategory implements MyPageCategory{writeInquiry,inquiryAnswer}
     public enum GenderTypes {MALE,FEMALE}
     public enum EmailDomains{NONE,NAVER,NATE,GMAIL,DAUM,SELF}
 }
