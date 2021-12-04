@@ -9,6 +9,7 @@
     width: 150px;
     height: 150px;
     border-radius: 50%;
+    background-size: cover;
 }
 .ih-item.circle .img:before {
     position: absolute;
@@ -24,6 +25,7 @@
 }
 .ih-item.circle .img img {
     border-radius: 50%;
+    background-size: cover;
 }
 .ih-item.circle .info {
     position: absolute;
@@ -186,7 +188,7 @@
     margin-top: 20px;
     font-size: 14px;
     color: #ffffff;
-    background: #00C89E;
+    background: #135762;
     border: none;
     border-radius: 10%;
     font-weight: 600;
@@ -196,14 +198,14 @@
     padding: 10px 20px;
 }
 .filebox label:hover{
-    color: #00C89E;
+    color: #135762;
     background: #ffffff;
 }
 .filebox-btn{
     margin-top: 20px;
     font-size: 14px;
     color: #ffffff;
-    background: #00C89E;
+    background: #135762;
     border: none;
     border-radius: 10%;
     font-weight: 600;
@@ -213,6 +215,6 @@
     padding: 10px 20px;
 }
 .filebox-btn:hover{
-    color: #00C89E;
+    color: #135762;
     background: #ffffff;
 }

@@ -17,17 +17,16 @@
             <div th:if="${loginUser}">
                 <div class="as-item">
                     <div class="user-pic">
-                        <img th:if="${loginUser.image}" th:src="@{${profileImgPath}+${loginUser.image}}" alt>
-                        <img th:unless="${loginUser.image}" th:src="@{${profileImgPath}+${defaultProfile}}" alt>
+                        <img th:src="@{${loginUser.getProfileImgPath()}}" alt>
                     </div>
                     <div class="as-text">
                         <div class="at-title">
                             <h6 th:text="#{hello.name(${loginUser.name})}"></h6>
                         </div>
                         <ul>
-                            <li>Email <span>[[${loginUser.email}]]</span></li>
-                            <li>Sex <span>[[#{'gender.'+${loginUser.genderTypes}}]]</span></li>
-                            <li>Age <span>[[${loginUser.calcAge()}]][[#{age}]]</span></li>
+                            <li>[[#{login.email}]] <span>[[${loginUser.email}]]</span></li>
+                            <li>[[#{login.genderTypes}]] <span>[[#{'gender.'+${loginUser.genderTypes}}]]</span></li>
+                            <li>[[#{login.age}]] <span>[[${loginUser.calcAge()}]][[#{age}]]</span></li>
                         </ul>
                         <div class="hs-top border-bottom-0">
                             <div class="ht-widget">

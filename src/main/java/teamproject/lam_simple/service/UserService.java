@@ -20,4 +20,11 @@ public class UserService {
         userRepository.save(userForm.toEntity(passwordEncoder));
     }
 
+    public void editUserImage(Long id, String image) {
+        userRepository.editImage(id, image);
+    }
+
+    public User find(long id) {
+        return userRepository.findById(id).orElse(null);
+    }
 }

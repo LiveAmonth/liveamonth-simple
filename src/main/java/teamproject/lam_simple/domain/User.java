@@ -16,6 +16,8 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
+import static teamproject.lam_simple.constants.SessionConstants.*;
+
 @Entity
 @Table(name = "user")
 @Getter
@@ -65,12 +67,16 @@ public class User{
         this.birth = birth;
     }
 
-
     // => 비즈니스 로직
     public int calcAge(){
         Calendar current = Calendar.getInstance();
         int currentYear  = current.get(Calendar.YEAR);
         int age = currentYear - this.birth.toLocalDate().getYear() + 1;
         return age;
+    }
+
+    public String getProfileImgPath(){
+        if(this.image == null) return S3_BUCKET_PATH+ PROFILE_IMAGE_DIR+ DEFAULT_IMAGE_NAME;
+        else return S3_BUCKET_PATH+ PROFILE_IMAGE_DIR + this.image;
     }
 }

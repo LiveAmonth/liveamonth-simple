@@ -37,14 +37,6 @@ public class HomeController {
         return Month.values()[Calendar.getInstance().get(Calendar.MONTH)];
     }
 
-    @ModelAttribute("profileImgPath")
-    public String profileImgPath() {return SessionConstants.PROFILE_IMAGE_PATH;}
-
-    @ModelAttribute("defaultProfile")
-    public String defaultProfile() {return SessionConstants.DEFAULT_IMAGE_NAME;}
-
-
-
     @GetMapping("/")
     public String homeLogin(
             @SessionAttribute(name = LOGIN_USER, required = false) User loginUser, Model model) {
