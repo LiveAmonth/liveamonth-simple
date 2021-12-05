@@ -8,8 +8,7 @@ import org.springframework.validation.Validator;
 import teamproject.lam_simple.dto.UserForm;
 import teamproject.lam_simple.repository.UserRepository;
 
-import java.util.Calendar;
-import java.util.Date;
+import static teamproject.lam_simple.constants.AttrConstants.*;
 
 @Component
 @RequiredArgsConstructor
@@ -27,19 +26,19 @@ public class SignUpFormValidator implements Validator {
     public void validate(Object target, Errors errors) {
         UserForm userForm = (UserForm) target;
         if (userForm.getBirth().toLocalDate().isAfter(new java.sql.Date(System.currentTimeMillis()).toLocalDate())) {
-            errors.reject("past.birth");
+            errors.reject(PAST_BIRTH);
         }
         if (!userForm.getPassword().equals(userForm.getPasswordCheck())) {
-            errors.reject("passwordCheck");
+            errors.reject(PASSWORD_CHECK);
         }
         if (userRepository.existsByEmail(userForm.unifyEmail())) {
-            errors.reject("exists.email");
+            errors.reject(EXISTS_EMAIL);
         }
         if (userRepository.existsByNickname(userForm.getNickname())) {
-            errors.reject("exists.nickname");
+            errors.reject(EXISTS_NICKNAME);
         }
         if (userRepository.existsByLoginId(userForm.getLoginId())) {
-            errors.reject("exists.loginId");
+            errors.reject(EXISTS_LOGINID);
         }
     }
 }

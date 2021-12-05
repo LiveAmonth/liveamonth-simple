@@ -8,13 +8,10 @@ import org.springframework.util.Assert;
 import teamproject.lam_simple.constants.CategoryConstants.GenderTypes;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Locale;
 
 import static teamproject.lam_simple.constants.SessionConstants.*;
 
@@ -22,9 +19,10 @@ import static teamproject.lam_simple.constants.SessionConstants.*;
 @Table(name = "user")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class User{
+public class User {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private long id;
 
@@ -49,6 +47,9 @@ public class User{
     @OneToMany(mappedBy = "user")
     private List<Schedule> schedules = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user")
+    private List<ReviewReply> reviewReplies = new ArrayList<>();
+
     @Builder
     public User(String loginId, String password, String name, String nickname, String email, GenderTypes genderTypes, Date birth) {
         Assert.notNull(loginId, "loginId must not be empty");
@@ -68,15 +69,15 @@ public class User{
     }
 
     // => 비즈니스 로직
-    public int calcAge(){
+    public int calcAge() {
         Calendar current = Calendar.getInstance();
-        int currentYear  = current.get(Calendar.YEAR);
+        int currentYear = current.get(Calendar.YEAR);
         int age = currentYear - this.birth.toLocalDate().getYear() + 1;
         return age;
     }
 
-    public String getProfileImgPath(){
-        if(this.image == null) return S3_BUCKET_PATH+ PROFILE_IMAGE_DIR+ DEFAULT_IMAGE_NAME;
-        else return S3_BUCKET_PATH+ PROFILE_IMAGE_DIR + this.image;
+    public String getProfileImgPath() {
+        if (this.image == null) return S3_BUCKET_PATH + PROFILE_IMAGE_DIR + DEFAULT_IMAGE_NAME;
+        else return S3_BUCKET_PATH + PROFILE_IMAGE_DIR + this.image;
     }
 }

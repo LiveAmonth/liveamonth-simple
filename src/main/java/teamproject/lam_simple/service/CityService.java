@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static teamproject.lam_simple.constants.AttrConstants.*;
 import static teamproject.lam_simple.constants.CategoryConstants.CityInfoCategory;
 import static teamproject.lam_simple.constants.CategoryConstants.CityNames;
 
@@ -42,8 +43,8 @@ public class CityService {
         }
         cityInfoMap.put(CityInfoCategory.VIEW.name(), views);
         cityInfoMap.put(CityInfoCategory.FOOD.name(), foods);
-        cityInfoMap.put("cityTransports", city.getCityTransports());
-        cityInfoMap.put("cityWeathers", city.getCityWeathers());
+        cityInfoMap.put(CITY_TRANSPORTS, city.getCityTransports());
+        cityInfoMap.put(CITY_WEATHERS, city.getCityWeathers());
         return cityInfoMap;
     }
 }

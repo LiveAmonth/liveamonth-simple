@@ -53,7 +53,6 @@ public class City {
     @OneToMany(mappedBy = "city")
     private List<CityTransport> cityTransports = new ArrayList<>();
 
-
     @Builder
     public City(CityNames name) {
         Assert.notNull(name, "name must not be null");

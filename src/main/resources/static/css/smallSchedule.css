@@ -33,7 +33,7 @@
 }
 
 .calendar_body:nth-child(even) {
-    background: #666666;
+    background: rgba(19, 87, 98, 0.27);
     border: 2px solid #fff1f1;
     color: #292929;
 }
