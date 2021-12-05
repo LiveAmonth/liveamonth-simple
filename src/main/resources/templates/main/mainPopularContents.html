@@ -42,11 +42,8 @@
                                                     th:text="${scheduleContent.viewCount}"></span>
                                             </li>
                                         </ul>
-                                        <p>[[${scheduleContent.user.nickname}]]님의
-                                            [[#{${scheduleContent.city.name}}]]에서
-                                            한달살기 스케줄 입니다!!</p>
-                                        <a href="#"
-                                           class="read-more">스케줄 보러가기 <span class="arrow_right"></span></a>
+                                        <p th:text="#{main.content.schedule(${scheduleContent.user.nickname},#{${scheduleContent.city.name}})}"></p>
+                                        <a href="#" class="read-more">[[#{main.go.schedule}]] <span class="arrow_right"></span></a>
                                     </div>
                                 </div>
                             </div>
@@ -65,8 +62,7 @@
                                         </h5>
                                         <ul>
                                             <li>by <span th:text="${review.user.nickname}">닉네임</span></li>
-                                            <li><span
-                                                    th:text="${#temporals.format(review.reviewDate,'yyyy-MM-dd HH:mm:ss')}">작성시간</span>
+                                            <li><span th:text="${#temporals.format(review.reviewDate,'yyyy-MM-dd HH:mm:ss')}">작성시간</span>
                                             </li>
                                             <li>
                                                 <i class="icon_like mr-1"></i><span>3</span>
@@ -76,9 +72,8 @@
                                                     th:text="${review.viewCount}">조회수</span>
                                             </li>
                                         </ul>
-                                        <p>[[${review.user.nickname}]]님이 작성한 게시글입니다!!</p>
-                                        <a href="#" class="read-more">
-                                            게시글 보러가기 <span class="arrow_right"></span></a>
+                                        <p th:text="#{main.content.review(${review.user.nickname})}"></p>
+                                        <a href="#" class="read-more">[[#{main.go.review}]] <span class="arrow_right"></span></a>
                                     </div>
                                 </div>
                             </div>

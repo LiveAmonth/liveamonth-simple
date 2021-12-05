@@ -22,7 +22,6 @@ class CustomerCenterControllerTest {
     public void customerCenterTest() throws Exception{
         // given
         CustomerCenterCategory menu = CustomerCenterCategory.faq;
-        CustomerCenterCategory[] sideBarMenus = CustomerCenterCategory.values();
 
         // when
 
@@ -30,8 +29,7 @@ class CustomerCenterControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.get("/customerCenter").param("menu", menu.name())
                 .accept(MediaType.TEXT_HTML))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.model().attribute("menu", menu))
-                .andExpect(MockMvcResultMatchers.model().attribute("sideBarMenus", sideBarMenus));
+                .andExpect(MockMvcResultMatchers.model().attribute("menu", menu));
     }
 
 }

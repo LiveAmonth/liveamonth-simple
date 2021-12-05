@@ -11,7 +11,7 @@
                         <div class="info">
                             <div class="info-back">
                                 <h3>[[${loginUser.nickname}]]</h3>
-                                <p>프로필 이미지 변경</p>
+                                <p th:text="#{myPage.edit.profile}">프로필 이미지 변경</p>
                             </div>
                         </div>
                     </a></div>
@@ -41,7 +41,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modifyUserImageLabel">프로필 이미지 변경</h5>
+                    <h5 class="modal-title" id="modifyUserImageLabel" th:text="#{myPage.edit.profile}">프로필 이미지 변경</h5>
                     <button type="button" class="close" data-dismiss="modal"
                             aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -59,10 +59,10 @@
                     <div class="filebox">
                         <form th:action="@{/editProfileImage}" id="form" name="form"
                               method="post" enctype="multipart/form-data" autocomplete="off">
-                            <label for="fileName" type="button">파일 선택</label>
+                            <label for="fileName" type="button" th:text="#{myPage.choose.file}">파일 선택</label>
                             <input type="file" id="fileName" name="fileName" accept="image/*" style="display:none"
                                    required/>
-                            <button type="submit" class="filebox-btn">업로드</button>
+                            <button type="submit" class="filebox-btn" th:text="#{myPage.upload.file}">업로드</button>
                         </form>
                     </div>
                 </div>

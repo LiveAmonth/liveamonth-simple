@@ -47,34 +47,9 @@ public class MyPageController extends ContentsController {
     }
 
     @GetMapping("/myPage")
-    public String myPage(@ModelAttribute(MENU) MyPageCategory menu) {
+    public String myPage() {
         return MY_PAGE_DIR+MY_PAGE;
     }
-
-    @GetMapping("myPage/reCheckPassword")
-    public String reCheckPassword(Model model,@SessionAttribute(name = LOGIN_USER, required = false) User loginUser) {
-        model.addAttribute("form", LoginForm.builder().loginId(loginUser.getLoginId()).build());
-        return MY_PAGE_DIR + RE_CHECK_PASSWORD;
-    }
-
-    @PostMapping("/reCheckPassword")
-    public String reCheckPassword(@Valid @ModelAttribute(FORM) LoginForm form,
-                                  @ModelAttribute(MENU) MyPageCategory menu,
-                                  BindingResult bindingResult,
-                                  Model model) {
-        if (bindingResult.hasErrors()) return MY_PAGE_DIR+MY_PAGE;
-
-        User loginUser = loginService.login(form.getLoginId(), form.getPassword());
-
-        if (loginUser == null) {
-            bindingResult.reject(NO_DATA);
-            return MY_PAGE_DIR+MY_PAGE;
-        }
-        model.addAttribute(STATUS, true);
-        return MY_PAGE_DIR+MY_PAGE;
-    }
-
-
     @PostMapping("/editProfileImage")
     public String editProfileImage(HttpSession session, @RequestPart(FILE_NAME) MultipartFile mFile) throws Exception {
         User user = (User) session.getAttribute(LOGIN_USER);

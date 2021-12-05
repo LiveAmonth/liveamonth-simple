@@ -28,12 +28,10 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-@Slf4j
 public class HomeController {
     private final CityService cityService;
     private final ScheduleService scheduleService;
     private final ReviewService reviewService;
-    private final UserService userService;
 
 
     @ModelAttribute("cityInfos")

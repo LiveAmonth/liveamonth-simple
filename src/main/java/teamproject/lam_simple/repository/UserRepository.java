@@ -26,7 +26,4 @@ public interface UserRepository extends JpaRepository<User,Long>{
     @Query(value = "update User u set u.image = :image where u.id=:id")
     Integer editImage(@Param(ID) Long id, @Param(IMAGE) String image);
 
-    @Transactional @Modifying
-    @Query(value = "update User u set u.password = :password where u.id=:id")
-    Integer testData(@Param(ID) Long id, @Param(PASSWORD) String password);
 }
