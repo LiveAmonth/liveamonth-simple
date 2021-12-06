@@ -1,11 +1,8 @@
 package teamproject.lam_simple.constants;
 
 public interface PathConstants {
-
     String RE_DIRECT_DIR = "redirect:/";
     String RE_DIRECT = "redirect:";
-
-
 
     /**
      * User

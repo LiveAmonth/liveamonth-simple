@@ -98,7 +98,6 @@ public class LoginController {
 
         String foundLoginId = foundUser.getLoginId();
 
-
         redirectAttributes.addAttribute(FOUND_LOGIN_ID, foundLoginId);
         return RE_DIRECT_DIR+FIND_ID_RESULT;
     }
@@ -132,10 +131,12 @@ public class LoginController {
         }
 
         mailService.sendPasswordByMail(result);
-
-        return LOGIN_DIR+FORM_DIR+FIND_PW_RESULT;
+        return RE_DIRECT_DIR+FIND_PW_RESULT;
     }
-
+    @GetMapping("/findPwResult")
+    public String findPwResult() {
+        return LOGIN_DIR+RESULT_DIR+FIND_PW_RESULT;
+    }
 
     @PostMapping("/logout")
     public String logout(HttpServletRequest request) {
