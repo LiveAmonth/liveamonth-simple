@@ -12,8 +12,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 public class PasswordEncoderTest {
     @Autowired
-    private UserService userService;
-    @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Test

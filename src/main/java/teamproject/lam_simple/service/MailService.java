@@ -28,7 +28,7 @@ public class MailService {
                     + "안녕하세요. " + result.get(NAME) + " 고객님<br><br>"
                     + "<h4>요청하신 임시 비밀번호는 다음과 같습니다.<br>"
                     + "임시비밀번호 : " + result.get("temporaryPw") + "<br>"
-                    + "<a href=\"https://liveamonth.ap-northeast-2.elasticbeanstalk.com/" + "login\">로그인 하러가기</a></h4><br>"
+                    + "<a href=\"http://liveamonth.ap-northeast-2.elasticbeanstalk.com/" + "login\">로그인 하러가기</a></h4><br>"
                     + "<p>발급된 비밀번호는 임시로 발급된 것이므로 로그인 후 '마이페이지 -> 회원정보 수정'을 통해 비밀번호를 변경해주시기 바랍니다.</p><br>"
                     + "<p>다른 문의사항이 있으시면 한달살기(TP.liveamonth@gamil.com)으로 문의해 주시기 바랍니다.</p><br>"
                     + "<strong>감사합니다.</strong>";
