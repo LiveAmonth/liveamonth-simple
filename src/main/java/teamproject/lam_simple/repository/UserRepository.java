@@ -10,7 +10,8 @@ import teamproject.lam_simple.domain.User;
 
 import java.util.Optional;
 
-import static teamproject.lam_simple.constants.AttrConstants.*;
+import static teamproject.lam_simple.constants.AttrConstants.ID;
+import static teamproject.lam_simple.constants.AttrConstants.IMAGE;
 
 @Repository
 public interface UserRepository extends JpaRepository<User,Long>{

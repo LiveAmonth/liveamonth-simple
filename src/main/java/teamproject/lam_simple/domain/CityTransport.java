@@ -6,7 +6,7 @@ import teamproject.lam_simple.constants.CategoryConstants.TransportCategory;
 
 import javax.persistence.*;
 
-import static javax.persistence.FetchType.*;
+import static javax.persistence.FetchType.LAZY;
 
 @Entity
 @Table(name = "city_transports")

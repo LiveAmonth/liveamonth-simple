@@ -1,6 +1,9 @@
 package teamproject.lam_simple.domain;
 
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.util.Assert;
 import teamproject.lam_simple.constants.CategoryConstants.CityInfoCategory;
 

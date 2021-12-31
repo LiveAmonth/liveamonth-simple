@@ -9,7 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 import teamproject.lam_simple.domain.User;
 
 import java.util.Optional;
-import static teamproject.lam_simple.constants.AttrConstants.*;
+
+import static teamproject.lam_simple.constants.AttrConstants.TEMPORARY_PW;
+import static teamproject.lam_simple.constants.AttrConstants.USER;
 
 @Repository
 public interface LoginRepository extends JpaRepository<User,Long> {

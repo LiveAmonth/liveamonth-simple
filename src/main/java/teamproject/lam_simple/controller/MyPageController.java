@@ -3,20 +3,18 @@ package teamproject.lam_simple.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 import teamproject.lam_simple.constants.CategoryConstants.MyPageCategory;
-import teamproject.lam_simple.constants.SessionConstants;
 import teamproject.lam_simple.domain.User;
-import teamproject.lam_simple.dto.LoginForm;
 import teamproject.lam_simple.service.LoginService;
 import teamproject.lam_simple.service.UserService;
 import teamproject.lam_simple.uploader.S3Uploader;
 
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -25,8 +23,8 @@ import java.util.Map;
 import static teamproject.lam_simple.constants.AttrConstants.*;
 import static teamproject.lam_simple.constants.PathConstants.MY_PAGE;
 import static teamproject.lam_simple.constants.PathConstants.*;
-import static teamproject.lam_simple.constants.SessionConstants.*;
 import static teamproject.lam_simple.constants.SessionConstants.LOGIN_USER;
+import static teamproject.lam_simple.constants.SessionConstants.PROFILE_IMAGE_DIR;
 
 @Controller
 @RequiredArgsConstructor

@@ -5,9 +5,6 @@ import teamproject.lam_simple.constants.AttrConstants;
 import java.util.HashMap;
 import java.util.Map;
 
-import static teamproject.lam_simple.constants.AttrConstants.MENU_NAME;
-import static teamproject.lam_simple.constants.AttrConstants.PATH;
-
 public class ContentsController extends MainController {
 
     protected Map<String,Object> createMenuMap(String path, String menuName, Object menus) {

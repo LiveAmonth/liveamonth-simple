@@ -1,7 +1,6 @@
 package teamproject.lam_simple.controller;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +18,6 @@ import teamproject.lam_simple.dto.CalendarDTO;
 import teamproject.lam_simple.service.CityService;
 import teamproject.lam_simple.service.ReviewService;
 import teamproject.lam_simple.service.ScheduleService;
-import teamproject.lam_simple.service.UserService;
 
 import java.util.Calendar;
 import java.util.HashMap;

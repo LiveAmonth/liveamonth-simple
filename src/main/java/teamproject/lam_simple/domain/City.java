@@ -1,7 +1,9 @@
 package teamproject.lam_simple.domain;
 
-import lombok.*;
-import org.springframework.data.jpa.repository.EntityGraph;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.util.Assert;
 import teamproject.lam_simple.constants.CategoryConstants;
 import teamproject.lam_simple.constants.CategoryConstants.CityNames;
@@ -9,7 +11,6 @@ import teamproject.lam_simple.constants.CategoryConstants.CityTransportGrade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import static teamproject.lam_simple.constants.CategoryConstants.CityTransportGrade.*;

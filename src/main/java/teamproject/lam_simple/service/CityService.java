@@ -12,7 +12,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static teamproject.lam_simple.constants.AttrConstants.*;
+import static teamproject.lam_simple.constants.AttrConstants.CITY_TRANSPORTS;
+import static teamproject.lam_simple.constants.AttrConstants.CITY_WEATHERS;
 import static teamproject.lam_simple.constants.CategoryConstants.CityInfoCategory;
 import static teamproject.lam_simple.constants.CategoryConstants.CityNames;
 
